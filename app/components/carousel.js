@@ -63,10 +63,10 @@ const Carousel_Component = ({items}) => {
 
   return (
     <>
-      <div className="navigation-wrapper w-11/12 items-center m-auto ">
+      <div className="navigation-wrapper w-10/12 items-center m-auto ">
         <div ref={sliderRef} className="keen-slider rounded-3xl mt-16">
           <div className="keen-slider__slide number-slide1"><Image className="w-full" src={juJitsu}></Image></div>
-          <div className="keen-slider__slide number-slide2"><Image className="w-full mt-40" src={boxing}></Image></div>
+          <div className="keen-slider__slide number-slide2"><Image className="w-full mt-32" src={boxing}></Image></div>
           <div className="keen-slider__slide number-slide3"><Image className="w-full" src={karate}></Image></div>
           <div className="keen-slider__slide number-slide4"><Image className="w-full" src={kungFu}></Image></div>
           <div className="keen-slider__slide number-slide5"><Image className="w-full h-full" src={kickBoxing}></Image></div>
