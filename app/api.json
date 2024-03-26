@@ -1,0 +1,176 @@
+{
+    "logo": {
+        "id": 1,
+        "imagem_url": "https://image.shutterstock.com/image-vector/alula-oasis-madain-saleh-medina-260nw-1754783888.jpg"
+    },
+    "nav_bar": [
+        {
+            "id": 1,
+            "label": "Home",
+            "url": "/",
+            "sub_item": [
+                {
+                    "id": 1,
+                    "label": "sobre",
+                    "url": "/sobre"
+                },
+                {
+                    "id": 2,
+                    "label": "histoy",
+                    "url": "/history"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "label": "Sobre nós",
+            "url": "/produtos",
+            "sub_item": [
+                {
+                    "id": 1,
+                    "label": "novidades",
+                    "url": "/novidades"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "label": "Contato",
+            "url": "/sobre"
+        },
+        {
+            "id": 4,
+            "label": "Conheça nossos produtos",
+            "url": "/contato"
+        }
+    ],
+    "produtos": [
+        {
+            "id": 1,
+            "titulo": "Equipamentos",
+            "image": "https://i.postimg.cc/bvCbXktF/equipamentos.jpg",
+            "descricao": "Descrição do Produto 1"
+        },
+        {
+            "id": 2,
+            "titulo": "Suplementos",
+            "image": "https://i.postimg.cc/nczkCVHm/suplementos.jpg",
+            "descricao": "Descrição do Produto 2"
+        },
+        {
+            "id": 3,
+            "titulo": "Vestimentas",
+            "image": "https://i.postimg.cc/8kydQ8hz/vestimentas.webp",
+            "descricao": "Descrição do Produto 3"
+        },
+        {
+            "id": 4,
+            "titulo": "Armas",
+            "image": "https://i.postimg.cc/ht8JKspX/armas.jpg",
+            "descricao": "Descrição do Produto 3"
+        }
+    ],
+    "produtos_em_promocoes": [
+        {
+            "id": 1,
+            "titulo": "Bastao em espiral",
+            "image": "https://i.postimg.cc/CKfrdhs7/bastao.jpg",
+            "descricao": "Descrição do Produto 1"
+        },
+        {
+            "id": 2,
+            "titulo": "Nunchako Dragao",
+            "image": "https://i.postimg.cc/0j5CGPDL/nunchaku.jpg",
+            "descricao": "Descrição do Produto 2"
+        },
+        {
+            "id": 3,
+            "titulo": "Conjunto triplo - Katanas",
+            "image": "https://i.postimg.cc/90NyGTW7/triple-Katana.jpg",
+            "descricao": "Descrição do Produto 3"
+        },
+        {
+            "id": 4,
+            "titulo": "Tanto bushido",
+            "image": "https://i.postimg.cc/Ssd6x33V/tanto.jpg",
+            "descricao": "Descrição do Produto 4"
+        },
+        {
+            "id": 5,
+            "titulo": "Canivete Karambit",
+            "image": "https://i.postimg.cc/NffNm7x5/karambit.png",
+            "descricao": "Descrição do Produto 5"
+        },
+        {
+            "id": 6,
+            "titulo": "Kimono World Combat",
+            "image": "https://i.postimg.cc/YCvbyrZ7/kimono.jpg",
+            "descricao": "Descrição do Produto 6"
+        },
+        {
+            "id": 7,
+            "titulo": "Faixas Ju-jitsu Profissional",
+            "image": "https://i.postimg.cc/T1TtkrMN/faixas.jpg",
+            "descricao": "Descrição do Produto 7"
+        },
+        {
+            "id": 8,
+            "titulo": "Luva de boxe",
+            "image": "https://i.postimg.cc/mZNLtRdT/luvaBoxe.jpg",
+            "descricao": "Descrição do Produto 8"
+        }
+    ],
+    "carrossel": [
+        {
+            "id": 1,
+            "imagem": "https://th.bing.com/th/id/OIP.9prfdtGx9TKBrfQxuLmlJAAAAA?rs=1&pid=ImgDetMain",
+            "url": "/produto1"
+        },
+        {
+            "id": 2,
+            "imagem": "https://th.bing.com/th/id/OIP.Yo0s72BL2Y2qFdGw4Ah7VgAAAA?rs=1&pid=ImgDetMain",
+            "url": "/produto2"
+        }
+    ],
+    "footer": {
+        "links_uteis": [
+            {
+                "id": 1,
+                "titulo": "Sobre Nós",
+                "url": "/sobre-nos"
+            },
+            {
+                "id": 2,
+                "titulo": "Política de Privacidade",
+                "url": "/politica-privacidade"
+            },
+            {
+                "id": 3,
+                "titulo": "Termos de Serviço",
+                "url": "/termos-servico"
+            }
+        ],
+        "contato": {
+            "telefone": "+55 1234-5678",
+            "email": "contato@minhaempresa.com",
+            "endereco": "Rua Exemplo, 123 - Cidade - Estado"
+        },
+        "redes_sociais": [
+            {
+                "id": 1,
+                "nome": "Facebook",
+                "url": "https://www.facebook.com/minhaempresa"
+            },
+            {
+                "id": 2,
+                "nome": "Twitter",
+                "url": "https://twitter.com/minhaempresa"
+            },
+            {
+                "id": 3,
+                "nome": "Instagram",
+                "url": "https://www.instagram.com/minhaempresa"
+            }
+        ]
+    }
+}
