@@ -1,0 +1,1 @@
+# fightstock-front-application
