@@ -4,7 +4,9 @@ const nextConfig = {
 
     reactStrictMode: true,
     images: {
-      remotePatterns: [
+
+
+	    remotePatterns: [
         {
           protocol: 'https',
           hostname: 'th.bing.com'
