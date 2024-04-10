@@ -132,4 +132,98 @@ body {
   .arrow--disabled {
     fill: rgba(255, 255, 255, 0.5);
   }
-  
+
+nav ul li{
+  display: flex;
+  margin: 0.5rem;
+}
+
+.menu{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background:#420D09;
+  width: 100%;
+  color: #FFF;
+  height: 11rem;
+  font-family: "Protest Guerrilla", sans-serif;
+  padding-top: 1rem/* 16px */;
+  padding-bottom: 1rem/* 16px */;
+  padding-left: 2rem/* 32px */;
+  padding-right: 2rem/* 32px */;
+
+}
+
+.menu ul{
+  display:block;
+  margin:0px;
+  padding:0px;
+  list-style:none;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+}
+
+.menu ul li{
+  float:left;
+  position:relative;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.menu ul li a {
+  transition: 0.3s ease;
+}
+
+.menu ul li:hover a{
+  color: #bf0a30;
+}
+
+.menu ul li ul{
+  position:absolute;
+  left:0px;
+  top:2rem;
+  background: #800000;
+  visibility: hidden;
+  opacity:0;
+  transition:all 0.3s ease;
+}
+
+.menu ul li:hover ul{
+  visibility: visible;
+  opacity:1;
+}
+
+.menu ul li ul li span {
+  white-space:nowrap;
+  transition:all 0.3s ease;
+}
+
+.menu ul li ul li:hover span {
+  color: #bf0a30;
+}
+
+.menu ul li ul li a{
+  color: #FFF;
+}
+
+.menu ul li ul li:hover a{
+  color: #bf0a30;
+}
+
+.menu ul li ul li{
+  float:none;
+}
+
+.menu ul li ul li:first-child{
+  border-top:none;
+}
+
+.menu ul li ul li a{
+  white-space:nowrap;
+  line-height:normal;
+  padding:0px;
+}
+
+.menu ul li ul li a:hover{
+  text-decoration:underline;
+}

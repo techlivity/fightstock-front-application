@@ -30,12 +30,12 @@ const ProductList_Component = ({ items }) => {
         </div>
         {items.produtos_em_promocoes.map(item_especial => (
           <div className="flex text-[#FFFFFF] mt-10 font-protest-guerrila relative justify-center rounded-3xl h-[300px] w-[24%]">
-          <button className='flex justify-center'>
-            <h1 className="absolute text-md mt-64 font-semibold">{item_especial.titulo}</h1>
-            <Image className='h-[300px] w-[240px] shadow-md shadow-black rounded-2xl' height={300} width={240} src={item_especial.image} />
-            <MagnifyingGlassIcon className="h-7 w-7 absolute left-12 top-3 text-[#000]" />
-          </button>
-        </div>
+            <button className='flex justify-center'>
+              <h1 className="absolute text-md mt-64 font-semibold">{item_especial.titulo}</h1>
+              <Image className='h-[300px] w-[240px] shadow-md shadow-black rounded-2xl' height={300} width={240} src={item_especial.image} />
+              <MagnifyingGlassIcon className="h-7 w-7 absolute right-3/4 top-3 text-[#000]" />
+            </button>
+          </div>
         ))}
       </div>
 

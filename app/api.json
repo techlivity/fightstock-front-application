@@ -7,7 +7,7 @@
         {
             "id": 1,
             "label": "Home",
-            "url": "/",
+            "url": "/Home",
             "sub_item": [
                 {
                     "id": 1,
@@ -16,7 +16,7 @@
                 },
                 {
                     "id": 2,
-                    "label": "histoy",
+                    "label": "history",
                     "url": "/history"
                 }
             ]
@@ -36,12 +36,12 @@
         {
             "id": 3,
             "label": "Contato",
-            "url": "/sobre"
+            "url": "/contato"
         },
         {
             "id": 4,
             "label": "Conheça nossos produtos",
-            "url": "/contato"
+            "url": "/produtos"
         }
     ],
     "produtos": [
@@ -171,6 +171,7 @@
                 "nome": "Instagram",
                 "url": "https://www.instagram.com/minhaempresa"
             }
+            
         ]
     }
 }
