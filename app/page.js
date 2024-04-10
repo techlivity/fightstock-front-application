@@ -5,8 +5,6 @@ import ProductList_Component from './components/produtos';
 import Nav_bar_component from './components/nav';
 import Footer from "./components/footer"
 
-
-
 export default function Home() {
   return (
     <main>
