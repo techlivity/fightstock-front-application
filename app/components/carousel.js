@@ -64,16 +64,13 @@ const Carousel_Component = ({items}) => {
   return (
     <>
       <div className="navigation-wrapper w-10/12 items-center m-auto ">
-        <div ref={sliderRef} className="keen-slider rounded-3xl mt-16">
+        <div ref={sliderRef} className="keen-slider rounded-3xl mt-8">
           <div className="keen-slider__slide number-slide1"><Image className="w-full" src={juJitsu}></Image></div>
           <div className="keen-slider__slide number-slide2"><Image className="w-full mt-32" src={boxing}></Image></div>
           <div className="keen-slider__slide number-slide3"><Image className="w-full" src={karate}></Image></div>
           <div className="keen-slider__slide number-slide4"><Image className="w-full" src={kungFu}></Image></div>
           <div className="keen-slider__slide number-slide5"><Image className="w-full h-full" src={kickBoxing}></Image></div>
           <div className="keen-slider__slide number-slide6"><Image className="w-full" src={taekwondo}></Image></div>
-        </div>
-        <div className='flex m-auto w-full justify-center mt-6'>  
-          <h1 className='font-protest-guerrila flex text-5xl text-zinc-50 drop-shadow-lg'>Com a FightStock, o poder está sempre em suas mãos</h1>
         </div>
 
         {loaded && instanceRef.current && (
@@ -105,7 +102,7 @@ const Carousel_Component = ({items}) => {
 function Arrow(props) {
   const disabled = props.disabled ? " arrow--disabled" : ""
   return (
-    <div className="relative w-[107%] items-center right-12 bottom-52">
+    <div className="relative w-[107%] items-center right-12 bottom-40">
       <svg
         onClick={props.onClick}
         className={`arrow ${

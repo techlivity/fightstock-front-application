@@ -6,38 +6,39 @@ import logo from "../public/logo-removebg-preview.png"
 const Footer = ({ footer }) => {
   const renderFooterLinks = () => (
     footer.links_uteis.map(link => (
-      <Link href={`$link.url`} key={link.id}>
-        <p>{link.titulo}</p>
+      <Link className='hover:text-red-600 duration-200 ease-in w-fit' href={`${link.url}`} key={link.id}>
+        {link.titulo}
       </Link>
     ))
   );
 
   const renderRedesSociais = () => (
     footer.redes_sociais.map(item => (
-      <Link href={`$item.url`} key={item.id}>
-        <p>{item.nome}</p>
-        
+      <Link target='blank' className='hover:text-red-600 duration-200 ease-in w-fit' href={`${item.url}`} key={item.id}>
+        {item.nome}
       </Link>
     ))
   );
 
   return (
-    <footer className="w-full bg-[#420D09] text-white py-4 px-8 mt-8 flex flex-row">
-      <Image className="w-60" src={logo}></Image>
-      <div className="w-full items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div>
-          <h2 className="font-protest-guerrila mb-2">Links Úteis</h2>
+    <footer className="w-full h-fit bottom-0 bg-[#420D09] text-white pb-2 px-8 mt-8 flex flex-row">
+      <a href='/'>  
+        <Image className="w-40 mr-40" src={logo}></Image>
+      </a>
+      <div className="w-full items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className='w-fit flex flex-col'>
+          <h2 className="font-protest-guerrila text-md">Links Úteis</h2>
           {renderFooterLinks()}
         </div>
+        <div className='w-fit flex flex-col'>
+          <h2 className="font-protest-guerrila text-md">Redes Sociais</h2>
+          {renderRedesSociais()}
+        </div>
         <div>
-          <h2 className="font-protest-guerrila mb-2">Contato</h2>
+          <h2 className="font-protest-guerrila text-md">Contato</h2>
           <p>{footer.contato.telefone}</p>
           <p>{footer.contato.email}</p>
           <p>{footer.contato.endereco}</p>
-        </div>
-        <div>
-          <h2 className="font-protest-guerrila mb-2">Redes Sociais</h2>
-          {renderRedesSociais()}
         </div>
       </div>
     </footer>

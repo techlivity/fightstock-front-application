@@ -27,59 +27,6 @@ body {
     max-height: 100vh;
   }
   
-  .number-slide1 {
-    background: rgb(64, 175, 255);
-  }
-  
-  .number-slide2 {
-    background: rgb(255, 75, 64);
-    background: linear-gradient(
-      128deg,
-      rgba(255, 154, 63, 1) 0%,
-      rgba(255, 75, 64, 1) 100%
-    );
-  }
-  
-  .number-slide3 {
-    background: rgb(182, 255, 64);
-    background: linear-gradient(
-      128deg,
-      rgba(182, 255, 64, 1) 0%,
-      rgba(63, 255, 71, 1) 100%
-    );
-    background: linear-gradient(
-      128deg,
-      rgba(189, 255, 83, 1) 0%,
-      rgba(43, 250, 82, 1) 100%
-    );
-  }
-  
-  .number-slide4 {
-    background: rgb(64, 255, 242);
-    background: linear-gradient(
-      128deg,
-      rgba(64, 255, 242, 1) 0%,
-      rgba(63, 188, 255, 1) 100%
-    );
-  }
-  
-  .number-slide5 {
-    background: rgb(255, 64, 156);
-    background: linear-gradient(
-      128deg,
-      rgba(255, 64, 156, 1) 0%,
-      rgba(255, 63, 63, 1) 100%
-    );
-  }
-  .number-slide6 {
-    background: rgb(64, 76, 255);
-    background: linear-gradient(
-      128deg,
-      rgba(64, 76, 255, 1) 0%,
-      rgba(174, 63, 255, 1) 100%
-    );
-  }
-  
   .navigation-wrapper {
     position: relative;
   }
@@ -145,13 +92,7 @@ nav ul li{
   background:#420D09;
   width: 100%;
   color: #FFF;
-  height: 11rem;
   font-family: "Protest Guerrilla", sans-serif;
-  padding-top: 1rem/* 16px */;
-  padding-bottom: 1rem/* 16px */;
-  padding-left: 2rem/* 32px */;
-  padding-right: 2rem/* 32px */;
-
 }
 
 .menu ul{
@@ -159,7 +100,6 @@ nav ul li{
   margin:0px;
   padding:0px;
   list-style:none;
-  font-size: 1.5rem;
   line-height: 2.5rem;
 }
 
@@ -174,7 +114,7 @@ nav ul li{
   transition: 0.3s ease;
 }
 
-.menu ul li:hover a{
+.menu ul li:hover{
   color: #bf0a30;
 }
 
@@ -185,7 +125,7 @@ nav ul li{
   background: #800000;
   visibility: hidden;
   opacity:0;
-  transition:all 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .menu ul li:hover ul{
@@ -193,37 +133,23 @@ nav ul li{
   opacity:1;
 }
 
-.menu ul li ul li span {
-  white-space:nowrap;
-  transition:all 0.3s ease;
-}
-
-.menu ul li ul li:hover span {
-  color: #bf0a30;
-}
-
-.menu ul li ul li a{
-  color: #FFF;
-}
-
-.menu ul li ul li:hover a{
-  color: #bf0a30;
-}
-
 .menu ul li ul li{
   float:none;
 }
 
-.menu ul li ul li:first-child{
-  border-top:none;
+.menu ul li ul li span {
+  white-space:nowrap;
+  transition:all 0.3s ease;
 }
 
 .menu ul li ul li a{
   white-space:nowrap;
   line-height:normal;
   padding:0px;
+  color: #FFF;
 }
 
 .menu ul li ul li a:hover{
   text-decoration:underline;
+  color: #bf0a30;
 }

@@ -9,32 +9,35 @@ import { UserCircleIcon, DocumentMagnifyingGlassIcon } from '@heroicons/react/24
 
 const Nav_bar_component = ({ data }) => {
     const [activeSubItem, setActiveSubItem] = useState(null);
+    let listaCategorias = ["Equipamentos", "Suplementos", "Vestimentas", "Armas"]
 
     return (
-        <div className='menu'>
+        <div className='menu h-fit justify-around shadow-slate-900 shadow-md'>
             <div className='w-fit'>
-                <Image className="w-60" src={img} />
+                <Link prefetch={true} href='/'>
+                    <Image className="w-40" src={img} />
+                </Link>
             </div>
-            <nav className='h-fit'>
-                <ul className='space-x-20'>
-                    <li><a>Home</a></li>
-                    <li><a>Sobre</a></li>
-                    <li><a>Contato</a></li>
+            <nav className='h-fit relative right-60'>
+                <ul className='space-x-20 text-lg'>
+                    <li><Link prefetch={true} href='/promocoes'>Promoções</Link></li>
+                    <li><a href='/novidades'>Novidades</a></li>
+                    <li><a href='/produtos'>Produtos</a></li>
                     <li>
                         <a>Categorias</a>
                         <ul className='w-fit rounded-b-md'>
-                            <li><span>Equipamentos</span></li>
-                            <li><span>Suplementos</span></li>
-                            <li><span>Vestimentas</span></li>
-                            <li><span>Sub-Item 4</span></li>
+                            {listaCategorias.map(categorias => (<li><a href={`/categorias/${categorias}`}>{categorias}</a></li>))}
                         </ul>
                     </li>
                 </ul>
             </nav>
-            <div className="flex relative left-1/4 items-center gap-4">
-                <button className='flex flex-row items-center text-left gap-4'>    
+            <div className="flex items-center h-[20%] w-fit gap-2">
+                <a className='hover:scale-[115%] duration-200 ease-in' href='login'>    
                     <UserCircleIcon className="h-10 w-10 text-[#FFFFFF]" />
-                    <span className='text-xl w-32 hover:text-[#bf0a30] transition-all ease-in duration-200'>Entre<br/>ou cadastre-se</span>
+                </a>
+                <button className='flex flex-col text-left'>    
+                    <span><a href='/login' className='text-md mr-2 w-fit hover:text-[#57c04d] transition-all ease-in duration-200'>Entre</a>ou</span>
+                    <a href='/criar-conta' className='text-md w-fit hover:text-[#57c04d] transition-all ease-in duration-200'>Cadastre-se</a>
                 </button>
             </div>
         </div>

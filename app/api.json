@@ -137,7 +137,7 @@
             {
                 "id": 1,
                 "titulo": "Sobre Nós",
-                "url": "/sobre-nos"
+                "url": "/sobre"
             },
             {
                 "id": 2,
@@ -159,19 +159,18 @@
             {
                 "id": 1,
                 "nome": "Facebook",
-                "url": "https://www.facebook.com/minhaempresa"
+                "url": "https://www.facebook.com"
             },
             {
                 "id": 2,
                 "nome": "Twitter",
-                "url": "https://twitter.com/minhaempresa"
+                "url": "https://twitter.com"
             },
             {
                 "id": 3,
                 "nome": "Instagram",
-                "url": "https://www.instagram.com/minhaempresa"
+                "url": "https://www.instagram.com"
             }
-            
         ]
     }
 }
