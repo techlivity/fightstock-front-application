@@ -1,7 +1,7 @@
 export default function Page({ slug }) {
     return (
             <p>
-               "Nome"
+               Nome
             </p>
     )
 }
