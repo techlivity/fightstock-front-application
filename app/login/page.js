@@ -80,7 +80,7 @@ export default function Page() {
             </div>
         </div>
         <div>
-            <Image loading={eager} id="bgContainer" className='duration-1000' src={bgLogin} sizes="100vw 100vh" fill></Image>
+            <Image loading="eager" id="bgContainer" className='duration-1000' src={bgLogin} sizes="100vw 100vh" fill></Image>
         </div>
     </div>
   )
