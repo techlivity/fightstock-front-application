@@ -3,47 +3,6 @@
         "id": 1,
         "imagem_url": "https://image.shutterstock.com/image-vector/alula-oasis-madain-saleh-medina-260nw-1754783888.jpg"
     },
-    "nav_bar": [
-        {
-            "id": 1,
-            "label": "Home",
-            "url": "/Home",
-            "sub_item": [
-                {
-                    "id": 1,
-                    "label": "sobre",
-                    "url": "/sobre"
-                },
-                {
-                    "id": 2,
-                    "label": "history",
-                    "url": "/history"
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "label": "Sobre nós",
-            "url": "/produtos",
-            "sub_item": [
-                {
-                    "id": 1,
-                    "label": "novidades",
-                    "url": "/novidades"
-                }
-            ]
-        },
-        {
-            "id": 3,
-            "label": "Contato",
-            "url": "/contato"
-        },
-        {
-            "id": 4,
-            "label": "Conheça nossos produtos",
-            "url": "/produtos"
-        }
-    ],
     "produtos": [
         {
             "id": 1,

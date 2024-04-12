@@ -7,7 +7,24 @@ import img from "../public/logo-removebg-preview.png"
 import { UserCircleIcon } from '@heroicons/react/24/solid'
 
 const Nav_bar_component = ({ data }) => {
-    let listaCategorias = ["Equipamentos", "Suplementos", "Vestimentas", "Armas"]
+    let listaCategorias = [
+        {
+        id:1,
+        name:"Equipamentos"
+        }, 
+        {
+        id:2,
+        nome:"Suplementos"
+        },
+        {
+        id:3,
+        nome:"Vestimentas"
+        },
+        {
+        id:4,
+        nome:"Armas"
+        }
+    ]
 
     return (
         <div className='menu h-fit justify-around shadow-slate-900 shadow-md'>
@@ -24,7 +41,7 @@ const Nav_bar_component = ({ data }) => {
                     <li>
                         <span>Categorias</span>
                         <ul className='w-fit rounded-b-md'>
-                            {listaCategorias.map(categorias => (<li><Link prefetch={true} href={`/categorias/${categorias}`}>{categorias}</Link></li>))}
+                            {listaCategorias.map(categorias => (<li key={categorias.id}><Link prefetch={true} href={`/categorias/${categorias}`}>{categorias}</Link></li>))}
                         </ul>
                     </li>
                 </ul>
