@@ -18,10 +18,10 @@ export default function Home() {
             {data.produtos_em_promocoes.map(item_especial => (
             <div className="flex text-[#FFFFFF] mt-10 font-protest-guerrila relative justify-center rounded-3xl hover:shadow-lg hover:shadow-white duration-300 ease-in h-[300px] w-[15rem]">
                 <button className='flex justify-center'>
-                <h1 className="absolute text-md mt-64 font-semibold">{item_especial.titulo}</h1>
-                <Image className='h-[300px] w-[15rem] shadow-md shadow-black rounded-2xl' height={300} width={240} src={item_especial.image} />
+                <h1 key={item_especial.id} className="absolute text-md mt-64 font-semibold">{item_especial.titulo}</h1>
+                <Image key={item_especial.id} className='h-[300px] w-[15rem] shadow-md shadow-black rounded-2xl' height={300} width={240} src={item_especial.image} />
                 </button>
-                <span className='w-0'>  
+                <span className='w-0'>
                     <MagnifyingGlassIcon className="h-7 w-7 relative right-56 top-3 text-[#000]" />
                 </span>
             </div>
