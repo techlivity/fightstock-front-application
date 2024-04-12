@@ -1,14 +1,12 @@
 "use client"
 import React from 'react';
-import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import data_json from '../api.json'
+
 import img from "../public/logo-removebg-preview.png"
 import { UserCircleIcon } from '@heroicons/react/24/solid'
 
 const Nav_bar_component = ({ data }) => {
-    const [activeSubItem, setActiveSubItem] = useState(null);
     let listaCategorias = ["Equipamentos", "Suplementos", "Vestimentas", "Armas"]
 
     return (

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import bgSenha from '../public/bgSenha.jpg';
 import img from '../public/logo-removebg-preview.png';
 import "../components/styles/styles.css"
-import { UserCircleIcon, LockClosedIcon, ArrowRightEndOnRectangleIcon, ArrowUturnLeftIcon, ArrowPathIcon, UserPlusIcon, EnvelopeIcon, CheckIcon} from '@heroicons/react/24/solid'
+import { UserCircleIcon, LockClosedIcon, ArrowUturnLeftIcon, UserPlusIcon, EnvelopeIcon, CheckIcon} from '@heroicons/react/24/solid'
 
 export default function Page() {
   const handleFocus = () => {
