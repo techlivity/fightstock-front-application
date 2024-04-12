@@ -1,25 +1,87 @@
+"use client"
+import Image from 'next/image';
+import bgLogin from '../public/bgLogin.jpg';
+import Link from 'next/link';
+import img from '../public/logo-removebg-preview.png';
+import "../components/styles/styles.css"
+import { UserCircleIcon, LockClosedIcon, ArrowRightEndOnRectangleIcon, ArrowUturnLeftIcon, ArrowPathIcon, UserPlusIcon} from '@heroicons/react/24/solid'
+
 export default function Page() {
-    return (
-            <div className="w-screen h-screen flex items-center text-white">
-                <div className="w-[60vh] h-[50vh] rounded-xl m-auto bg-[#300d0b] flex justify-center items-center shadow-[#1a0f0e] shadow-md">
-                    <div className="flex flex-col w-[90%] items-center">
-                        <form className="w-full space-y-2 flex flex-col" action="/processar-cadastro" method="post">
-                            <label className="font-protest-guerrila text-xl" for="login">Login:</label>
-                            <input className="rounded-md px-4 py-1 w-[100%] text-slate-900 outline-none" type="text" id="login" name="login" required></input>
+  const handleFocus = () => {
+    document.getElementById('bgContainer').classList.add('blur-bg');
+    document.getElementById('form').classList.add('vhMax');
+    document.getElementById('slogan').classList.add('geeks');
+    document.getElementById('sloganTxt').classList.remove('opacity-0');
+};
 
-                            <label className="font-protest-guerrila text-xl" for="senha">Senha:</label>
-                            <input className="rounded-md px-4 py-1 w-[100%] text-slate-900 outline-none" type="password" id="senha" name="senha" required></input>
+  const handleBlur = () => {
+    document.getElementById('bgContainer').classList.remove('blur-bg');
+    document.getElementById('form').classList.remove('vhMax');
+  };
 
-                        </form>
-                        <button className="font-protest-guerrila mt-8 bg-[#1d942d] hover:bg-[#17421d] duration-200 ease-in py-2 rounded-xl w-[25%]">Entrar</button>
-                        <div className="mt-5">
-                            <a className="font-protest-guerrila text-xl cursor-pointer hover:text-green-800 duration-200 ease-in" href="/criar-conta">Cadastre-se</a>
-                            <span className="px-4">/</span>
-                            <a className="font-protest-guerrila text-xl hover:text-red-900 duration-200 ease-in" href="/esqueci-senha">Esqueci minha senha</a>
+  return (
+    <div className="relative w-screen h-screen flex flex-row items-center text-white">
+        <div id='form' className="absolute z-10 w-[60vh] h-[50vh] hover:h-[100vh] overflow-hidden duration-700 rounded-xl hover:rounded-none bg-[#300d0b] shadow-[#1a0f0e] shadow-md">
+            <div className='h-[100%] flex justify-center items-center'>
+                <div className="flex flex-col w-[90%] items-center">
+                    <Image className="w-96 mt-14" src={img} />
+                    <form className="w-full space-y-2 flex flex-col" action="/processar-cadastro" method="post">
+                        <div className='flex flex-row items-center space-x-2'>
+                            <UserCircleIcon className="h-8 w-8 text-[#FFFFFF]" />
+                            <label className="font-protest-guerrila text-xl w-full" htmlFor="login">Login:</label>
                         </div>
-                        <a className="font-protest-guerrila text-lg hover:text-gray-500 mt-5 duration-200 ease-in" href="/">Volte a página inicial</a>
+                        <input
+                            className="rounded-md px-4 py-1 w-[100%] text-slate-900 outline-none"
+                            type="text"
+                            id="login"
+                            name="login"
+                            required
+                            onFocus={handleFocus}
+                            onBlur={handleBlur}
+                        />
+
+                        <div className='flex flex-row items-center space-x-2'>
+                            <LockClosedIcon className="h-7 w-7 text-[#FFFFFF]" />
+                            <label className="font-protest-guerrila text-xl w-full" htmlFor="senha">Senha:</label>
+                        </div>
+                        <input
+                            className="rounded-md px-4 py-1 w-[100%] text-slate-900 outline-none"
+                            type="password"
+                            id="senha"
+                            name="senha"
+                            required
+                            onFocus={handleFocus}
+                            onBlur={handleBlur}
+                        />
+                    </form>
+                    <button className='flex mt-8 items-center w-[4rem] bg-[#1d942d] hover:bg-[#17421d] hover:w-[26%] duration-200 ease-in py-2 rounded-xl overflow-hidden'>
+                        <span className="ml-3 font-protest-guerrila">Entrar</span>
+                        <ArrowRightEndOnRectangleIcon className="relative left-4 h-7 w-7 text-[#FFFFFF]" />
+                    </button>
+                    <div className="flex flex-row mt-5">
+                        <Link prefetch={true} className="flex flex-row font-protest-guerrila text-xl items-center cursor-pointer hover:text-green-800 duration-200 ease-in" href="/criar-conta">
+                            <UserPlusIcon className="h-6 w-6 mr-1" />
+                            <span>Cadastre-se</span>
+                        </Link>
+                        <span className="px-4">/</span>
+                        <Link prefetch={true} className="flex flex-row font-protest-guerrila text-xl items-center hover:text-red-900 duration-200 ease-in" href="/esqueci-senha">
+                            <ArrowPathIcon className="h-6 w-6 mr-1" />
+                            <span>Esqueci minha senha</span>
+                        </Link>
                     </div>
+                    <Link prefetch={true} className="flex flex-row gap-1 font-protest-guerrila items-center text-[#FFFFFF] text-lg hover:text-gray-500 mt-5 mb-28 duration-200 ease-in" href="/">
+                        <ArrowUturnLeftIcon className="h-6 w-6" />
+                        <span>Página inicial</span>
+                    </Link>
+                    <div id='slogan' className="mb-32"> 
+                        <pre id='sloganTxt' className='font-protest-guerrila text-3xl opacity-0'>O poder está em suas mãos!</pre>
+                    </div> 
                 </div>
             </div>
-    )
+        </div>
+        <div>
+            <Image id="bgContainer" className='duration-1000' src={bgLogin} sizes="100vw 100vh" fill></Image>
+        </div>
+    </div>
+  )
 }

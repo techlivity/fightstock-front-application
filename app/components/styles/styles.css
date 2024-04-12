@@ -153,3 +153,48 @@ nav ul li{
   text-decoration:underline;
   color: #bf0a30;
 }
+
+.blur-bg {
+  filter: blur(5px); /* Altere o valor para o desfoque desejado */
+}
+
+.vhMax {
+  height: 100vh;
+}
+
+.geeks {
+  width: 95%;
+  //top: 50%; 
+  //position: absolute; 
+  //left: 40%;
+  /* border-bottom: 5px solid white;  */
+  overflow: hidden;
+  animation: animate 8s linear forwards; 
+} 
+
+.geeks h1 { 
+  color: white; 
+} 
+
+@keyframes animate {
+  
+  0% { 
+    opacity: 0; 
+  } 
+
+  30% { 
+      opacity: 25%; 
+  } 
+
+  50% { 
+      opacity: 50%;  
+  } 
+
+  75% { 
+      opacity: 70%;  
+  } 
+
+  90% { 
+    opacity: 100%;  
+  } 
+} 

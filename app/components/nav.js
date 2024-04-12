@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import data_json from '../api.json'
 import img from "../public/logo-removebg-preview.png"
-import { UserCircleIcon, DocumentMagnifyingGlassIcon } from '@heroicons/react/24/solid'
+import { UserCircleIcon } from '@heroicons/react/24/solid'
 
 const Nav_bar_component = ({ data }) => {
     const [activeSubItem, setActiveSubItem] = useState(null);
@@ -24,20 +24,20 @@ const Nav_bar_component = ({ data }) => {
                     <li><a href='/novidades'>Novidades</a></li>
                     <li><a href='/produtos'>Produtos</a></li>
                     <li>
-                        <a>Categorias</a>
+                        <span>Categorias</span>
                         <ul className='w-fit rounded-b-md'>
-                            {listaCategorias.map(categorias => (<li><a href={`/categorias/${categorias}`}>{categorias}</a></li>))}
+                            {listaCategorias.map(categorias => (<li><Link prefetch={true} href={`/categorias/${categorias}`}>{categorias}</Link></li>))}
                         </ul>
                     </li>
                 </ul>
             </nav>
             <div className="flex items-center h-[20%] w-fit gap-2">
-                <a className='hover:scale-[115%] duration-200 ease-in' href='login'>    
+                <Link prefetch={true} className='hover:scale-[115%] duration-200 ease-in' href='/login'>    
                     <UserCircleIcon className="h-10 w-10 text-[#FFFFFF]" />
-                </a>
+                </Link>
                 <button className='flex flex-col text-left'>    
-                    <span><a href='/login' className='text-md mr-2 w-fit hover:text-[#57c04d] transition-all ease-in duration-200'>Entre</a>ou</span>
-                    <a href='/criar-conta' className='text-md w-fit hover:text-[#57c04d] transition-all ease-in duration-200'>Cadastre-se</a>
+                    <span><Link prefetch={true} href='/login' className='text-md mr-2 w-fit hover:text-[#57c04d] transition-all ease-in duration-200'>Entre</Link>ou</span>
+                    <span><Link prefetch={true} href='/criar-conta' className='text-md w-fit hover:text-[#57c04d] transition-all ease-in duration-200'>Cadastre-se</Link></span>
                 </button>
             </div>
         </div>
