@@ -14,12 +14,12 @@ const ProductList_Component = ({ items }) => {
           <h1 className='font-protest-guerrila flex text-3xl mb-10 text-zinc-50 drop-shadow-lg'>Confira nossos produtos</h1>
         </div>
         {items.produtos.map(item => (
-          <div className="flex text-[#FFFFFF]  justify-center font-protest-guerrila rounded-3xl h-[300px] w-[15rem]">
-          <button className='flex justify-center'>
-            <h1 key={item.id} className="absolute text-xl mt-3 font-semibold">{item.titulo}</h1>
-            <Image key={item.id} className='h-[300px] w-[15rem] shadow-md shadow-black rounded-2xl' height={300} width={240} src={item.image} />
-          </button>
-        </div>
+          <div key={item.id} className="flex text-[#FFFFFF]  justify-center font-protest-guerrila rounded-3xl h-[300px] w-[15rem]">
+            <button key={item.id} className='flex justify-center'>
+              <h1 className="absolute text-xl mt-3 font-semibold">{item.titulo}</h1>
+              <Image className='h-[300px] w-[15rem] shadow-md shadow-black rounded-2xl' height={300} width={240} src={item.image} />
+            </button>
+          </div>
         ))}
       </div>
 
@@ -28,8 +28,8 @@ const ProductList_Component = ({ items }) => {
           <h1 className='font-protest-guerrila flex text-3xl text-zinc-50 drop-shadow-lg'>Produtos em Destaque</h1>
         </div>
         {items.produtos_em_promocoes.map(item_especial => (
-          <div className="flex text-[#FFF] mt-10 font-protest-guerrila relative justify-center rounded-3xl hover:shadow-lg hover:shadow-white duration-300 ease-in h-[300px] w-[15rem]">
-            <button className='flex justify-center'>
+          <div key={item_especial.id} className="flex text-[#FFF] mt-10 font-protest-guerrila relative justify-center rounded-3xl hover:shadow-lg hover:shadow-white duration-300 ease-in h-[300px] w-[15rem]">
+            <button key={item_especial.id} className='flex justify-center'>
               <h1 key={item_especial.id} className="absolute text-md mt-64 font-semibold">{item_especial.titulo}</h1>
               <Image key={item_especial.id} className='h-[300px] w-[15rem] shadow-md shadow-black rounded-2xl' height={300} width={240} src={item_especial.image} />
             </button>
