@@ -41,7 +41,7 @@ const Nav_bar_component = ({ data }) => {
                     <li>
                         <span>Categorias</span>
                         <ul className='w-fit rounded-b-md'>
-                            {listaCategorias.map(categorias => (<li key={categorias.id}><Link prefetch={true} href={`/categorias/${categorias}`}>{categorias}</Link></li>))}
+                            {listaCategorias.map(categorias => (<li key={categorias.id}><Link prefetch={true} href={`/categorias/${categorias.name}`}>{categorias.name}</Link></li>))}
                         </ul>
                     </li>
                 </ul>
