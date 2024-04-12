@@ -14,15 +14,15 @@ const Nav_bar_component = ({ data }) => {
         }, 
         {
         id:2,
-        nome:"Suplementos"
+        name:"Suplementos"
         },
         {
         id:3,
-        nome:"Vestimentas"
+        name:"Vestimentas"
         },
         {
         id:4,
-        nome:"Armas"
+        name:"Armas"
         }
     ]
 
