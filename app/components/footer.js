@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link';
 import Image from 'next/image';
-import logo from "../public/logo-removebg-preview.png"
+import logo from "../public/logo.png"
 
 const Footer = ({ footer }) => {
   const renderFooterLinks = () => (
@@ -21,9 +21,9 @@ const Footer = ({ footer }) => {
   );
 
   return (
-    <footer className="w-full h-fit bottom-0 bg-[#420D09] text-white pb-2 px-8 mt-8 flex flex-row">
+    <footer className="w-full h-fit py-2 bottom-0 bg-[#420D09] text-white pb-2 px-8 mt-8 flex flex-row">
       <a href='/'>  
-        <Image className="w-40 mr-40" src={logo}></Image>
+        <Image className="w-40 mr-40" src={logo} alt="logo image"></Image>
       </a>
       <div className="w-full items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         <div className='w-fit flex flex-col'>

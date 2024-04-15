@@ -17,7 +17,7 @@ const ProductList_Component = ({ items }) => {
           <div key={item.id} className="flex text-[#FFFFFF]  justify-center font-protest-guerrila rounded-3xl h-[300px] w-[15rem]">
             <button className='flex justify-center'>
               <h1 className="absolute text-xl mt-3 font-semibold">{item.titulo}</h1>
-              <Image className='h-[300px] w-[15rem] shadow-md shadow-black rounded-2xl' height={300} width={240} src={item.image} />
+              <Image className='h-[300px] w-[15rem] shadow-md shadow-black rounded-2xl' height={300} width={240} src={item.image} alt="product image" />
             </button>
           </div>
         ))}
@@ -28,10 +28,10 @@ const ProductList_Component = ({ items }) => {
           <h1 className='font-protest-guerrila flex text-3xl text-zinc-50 drop-shadow-lg'>Produtos em Destaque</h1>
         </div>
         {items.produtos_em_promocoes.map(item_especial => (
-          <div key={item_especial.id} className="flex text-[#FFF] mt-10 font-protest-guerrila relative justify-center rounded-3xl hover:shadow-lg hover:shadow-white duration-300 ease-in h-[300px] w-[15rem]">
+          <div key={item_especial.id} className="flex text-[#FFF] mt-10 font-protest-guerrila shadow-md shadow-black relative justify-center rounded-3xl hover:shadow-white duration-300 ease-in h-[300px] w-[15rem]">
             <button className='flex justify-center'>
               <h1 className="absolute text-md mt-64 font-semibold">{item_especial.titulo}</h1>
-              <Image className='h-[300px] w-[15rem] shadow-md shadow-black rounded-2xl' height={300} width={240} src={item_especial.image} />
+              <Image className='h-[300px] w-[15rem] rounded-2xl' height={300} width={240} src={item_especial.image} alt="promo product image" />
             </button>
               <span className='w-0'>  
                 <MagnifyingGlassIcon className="h-7 w-7 relative right-56 top-3 text-[#000]" />
@@ -47,12 +47,12 @@ const ProductList_Component = ({ items }) => {
 
         <div className="flex text-[#FFFFFF] mt-10 font-protest-guerrila relative justify-center rounded-3xl h-[450px] w-[40%]">
           <button className='flex justify-center'>
-            <Image className='h-[450px] w-[500px]' src={promo} />
+            <Image className='h-[450px] w-[500px]' src={promo} alt="promo image"/>
           </button>
         </div>
         <div className="flex text-[#FFFFFF] mt-10 font-protest-guerrila relative justify-center rounded-3xl h-[450px] w-[40%]">
           <button className='flex justify-center'>
-            <Image className='h-[450px] w-[500px]' src={promo2} />
+            <Image className='h-[450px] w-[500px]' src={promo2} alt="promo image"/>
           </button>
         </div>
       </div>

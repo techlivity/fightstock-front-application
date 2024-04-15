@@ -114,6 +114,10 @@ nav ul li{
   transition: 0.3s ease;
 }
 
+.menu ul li span {
+  transition: 0.3s ease;
+}
+
 .menu ul li:hover{
   color: #bf0a30;
 }
@@ -125,7 +129,7 @@ nav ul li{
   background: #800000;
   visibility: hidden;
   opacity:0;
-  transition: 0.3s ease;
+  transition: .3s ease-in;
 }
 
 .menu ul li:hover ul{
@@ -135,11 +139,6 @@ nav ul li{
 
 .menu ul li ul li{
   float:none;
-}
-
-.menu ul li ul li span {
-  white-space:nowrap;
-  transition:all 0.3s ease;
 }
 
 .menu ul li ul li a{
@@ -164,10 +163,6 @@ nav ul li{
 
 .geeks {
   width: 95%;
-  //top: 50%; 
-  //position: absolute; 
-  //left: 40%;
-  /* border-bottom: 5px solid white;  */
   overflow: hidden;
   animation: animate 8s linear forwards; 
 } 

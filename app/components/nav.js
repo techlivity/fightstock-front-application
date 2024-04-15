@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import img from "../public/logo-removebg-preview.png"
+import logo from "../public/logo.png"
 import { UserCircleIcon } from '@heroicons/react/24/solid'
 
 const Nav_bar_component = ({ data }) => {
@@ -30,14 +30,14 @@ const Nav_bar_component = ({ data }) => {
         <div className='menu h-fit justify-around shadow-slate-900 shadow-md'>
             <div className='w-fit'>
                 <Link prefetch={true} href='/'>
-                    <Image className="w-40" src={img} />
+                    <Image className="w-40" src={logo} alt="logo image"/>
                 </Link>
             </div>
             <nav className='h-fit relative right-60'>
                 <ul className='space-x-20 text-lg'>
                     <li><Link prefetch={true} href='/promocoes'>Promoções</Link></li>
-                    <li><a href='/novidades'>Novidades</a></li>
-                    <li><a href='/produtos'>Produtos</a></li>
+                    <li><Link prefetch={true} href='/novidades'>Novidades</Link></li>
+                    <li><Link prefetch={true} href='/produtos'>Produtos</Link></li>
                     <li>
                         <span>Categorias</span>
                         <ul className='w-fit rounded-b-md'>

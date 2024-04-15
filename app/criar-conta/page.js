@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import bgCadastro from '../public/bgCadastro.jpg';
-import img from '../public/logo-removebg-preview.png';
+import logo from '../public/logo.png';
 import "../components/styles/styles.css"
 import { UserCircleIcon, LockClosedIcon, ArrowUturnLeftIcon, CheckCircleIcon} from '@heroicons/react/24/solid'
 
@@ -24,7 +24,7 @@ export default function Page() {
         <div id='form' className="absolute z-10 w-[60vh] h-[50vh] hover:h-[100vh] overflow-hidden duration-700 rounded-xl hover:rounded-none bg-[#300d0b] shadow-[#1a0f0e] shadow-md">
             <div className='h-[100%] flex justify-center items-center'>
                 <div className="flex flex-col w-[90%] items-center">
-                    <Image className="w-96 mt-14" src={img} />
+                    <Image className="w-96 mt-14" src={logo} alt="logo image"/>
                     <form className="w-full space-y-2 flex flex-col" action="/processar-cadastro" method="post">
                         <div className='flex flex-row items-center space-x-2'>
                             <UserCircleIcon className="h-8 w-8 text-[#FFFFFF]" />
@@ -32,10 +32,11 @@ export default function Page() {
                         </div>
                         <input
                             className="rounded-md px-4 py-1 w-[100%] text-slate-900 outline-none"
-                            type="text"
+                            type="email"
                             id="login"
                             name="login"
-                            required
+                            required={true}
+                            placeholder='Digite sua email para cadastro..'
                             onFocus={handleFocus}
                             onBlur={handleBlur}
                         />
@@ -49,15 +50,20 @@ export default function Page() {
                             type="password"
                             id="senha"
                             name="senha"
-                            required
+                            required={true}
+                            placeholder='Digite sua senha..'
+                            minlength="8"
+                            maxlength="20"
                             onFocus={handleFocus}
                             onBlur={handleBlur}
                         />
+                        <div className='flex justify-center'>
+                            <button type='submit' className='flex mt-2 items-center w-[5.3rem] bg-[#1d942d] hover:bg-[#17421d] hover:w-[7.5rem] duration-200 ease-in py-2 rounded-xl overflow-hidden'>
+                                <span className="ml-3 w-fit font-protest-guerrila">Cadastrar</span>
+                                <CheckCircleIcon className="relative left-2 h-6 w-6 text-[#FFFFFF]" />
+                            </button>
+                        </div>
                     </form>
-                    <button className='flex mt-8 items-center w-[5.3rem] bg-[#1d942d] hover:bg-[#17421d] hover:w-[7.5rem] duration-200 ease-in py-2 rounded-xl overflow-hidden'>
-                        <span className="ml-3 w-fit font-protest-guerrila">Cadastrar</span>
-                        <CheckCircleIcon className="relative left-2 h-6 w-6 text-[#FFFFFF]" />
-                    </button>
                     <div className="flex flex-row mt-5">
                         <Link prefetch={true} className="flex flex-row font-protest-guerrila text-xl items-center cursor-pointer hover:text-green-800 duration-200 ease-in" href="/login">
                             <UserCircleIcon className="h-6 w-6 mr-1" />
@@ -76,7 +82,7 @@ export default function Page() {
             </div>
         </div>
         <div>
-            <Image id="bgContainer" className='duration-1000' src={bgCadastro} sizes="100vw 100vh" fill></Image>
+            <Image id="bgContainer" className='duration-1000' src={bgCadastro} sizes="100vw 100vh" alt="background image" fill></Image>
         </div>
     </div>
   )
