@@ -80,7 +80,7 @@ const ProductList_Component = ({ items }) => {
                         Close
                       </Button>
                       <Button color="primary" onPress={onClose}>
-                        <FontAwesomeIcon icon={faWhatsapp} />
+                        Action
                       </Button>
                     </ModalFooter>
                   </div>
