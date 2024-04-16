@@ -129,6 +129,11 @@
                 "id": 3,
                 "nome": "Instagram",
                 "url": "https://www.instagram.com"
+            },
+            {
+                "id": 4,
+                "nome": "Whatsapp",
+                "url": "https://api.whatsapp.com/send?phone=555596053783&text=Olá, gostaria de obter mais informações sobre compras de produtos na loja FightStock!"
             }
         ]
     }

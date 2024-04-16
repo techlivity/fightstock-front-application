@@ -1,12 +1,16 @@
 "use client"
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope, faExclamation, faWhatsapp } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
 import Image from 'next/image';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
+import whatsappLogo from "../public/whatsapp.png"
 
 import promo from "../public/promo.png"
 import promo2 from "../public/promo2.png"
+import Link from 'next/link';
 
 
 const ProductList_Component = ({ items }) => {
@@ -77,11 +81,14 @@ const ProductList_Component = ({ items }) => {
                     </ModalBody>
                     <ModalFooter className='p-0'>
                       <Button color="danger" variant="light" onPress={onClose}>
-                        Close
+                        Fechar
                       </Button>
-                      <Button color="primary" onPress={onClose}>
-                        Action
-                      </Button>
+                        <Link target='blank' href={`https://api.whatsapp.com/send?phone=555596053783&text=Olá, me interessei no seguinte produto: ${encodeURIComponent(selectedProduct.titulo)}`+ `. Poderia me fornecer mais informações sobre?`}>
+                          <Button className='bg-[#25D366] hover:bg-[#2c7e4a]' color="primary" onPress={onClose}>
+                              Saiba mais!
+                              <Image className='h-6 w-6' src={whatsappLogo} alt='whatsappLogo'></Image>
+                          </Button>
+                        </Link>
                     </ModalFooter>
                   </div>
                 </div>
