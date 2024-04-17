@@ -31,7 +31,7 @@ export default function Page() {
                             <label className="font-protest-guerrila text-xl w-full" htmlFor="login">Login:</label>
                         </div>
                         <input
-                            className="rounded-md px-4 py-1 w-[100%] text-slate-900 outline-none"
+                            className="rounded-md px-4 py-1 w-[100%] outline-none"
                             type="email"
                             id="login"
                             name="login"
@@ -46,7 +46,7 @@ export default function Page() {
                             <label className="font-protest-guerrila text-xl w-full" htmlFor="senha">Senha:</label>
                         </div>
                         <input
-                            className="rounded-md px-4 py-1 w-[100%] text-slate-900 outline-none"
+                            className="rounded-md px-4 py-1 w-[100%] outline-none"
                             type="password"
                             id="senha"
                             name="senha"

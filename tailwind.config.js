@@ -12,7 +12,7 @@ module.exports = {
   theme: {
     fontFamily: {
       'nunito': ['nunito', 'sans-serif'],
-      'protest-guerrila': ['"Protest Guerrilla"', 'sans-serif'] // Ensure fonts with spaces have " " surrounding it.
+      'protest-guerrila': ['Protest Guerrilla', 'sans-serif']
     },
     extend: {
       backgroundImage: {
