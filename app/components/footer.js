@@ -25,17 +25,17 @@ const Footer = ({ footer }) => {
       <a href='/'>  
         <Image className="w-40 mr-40" src={logo} alt="logo image"></Image>
       </a>
-      <div className="w-full items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="w-full items-center font-gabarito grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         <div className='w-fit flex flex-col'>
-          <h2 className="font-protest-guerrila text-md">Links Úteis</h2>
+          <h2 className="font-gabarito text-lg">Links Úteis</h2>
           {renderFooterLinks()}
         </div>
         <div className='w-fit flex flex-col'>
-          <h2 className="font-protest-guerrila text-md">Redes Sociais</h2>
+          <h2 className="font-gabarito text-lg">Redes Sociais</h2>
           {renderRedesSociais()}
         </div>
         <div>
-          <h2 className="font-protest-guerrila text-md">Contato</h2>
+          <h2 className="font-gabarito text-lg">Contato</h2>
           <p>{footer.contato.telefone}</p>
           <p>{footer.contato.email}</p>
           <p>{footer.contato.endereco}</p>

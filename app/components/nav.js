@@ -33,7 +33,7 @@ const Nav_bar_component = ({ data }) => {
                     <Image className="w-40" src={logo} alt="logo image"/>
                 </Link>
             </div>
-            <nav className='h-fit relative right-60'>
+            <nav className='h-fit relative font-gabarito right-60'>
                 <ul className='space-x-20 text-lg'>
                     <li><Link prefetch={true} href='/promocoes'>Promoções</Link></li>
                     <li><Link prefetch={true} href='/novidades'>Novidades</Link></li>
@@ -46,7 +46,7 @@ const Nav_bar_component = ({ data }) => {
                     </li>
                 </ul>
             </nav>
-            <div className="flex items-center h-[20%] w-fit gap-2">
+            <div className="flex font-gabarito items-center h-[20%] w-fit gap-2">
                 <Link prefetch={true} className='hover:scale-[115%] duration-200 ease-in' href='/login'>    
                     <UserCircleIcon className="h-10 w-10 text-[#FFFFFF]" />
                 </Link>

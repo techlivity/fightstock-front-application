@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main>
       <Nav_bar_component data={data.nav_bar}></Nav_bar_component>
-        <div className='text-white w-[85%] flex flex-col m-auto'>
+        <div className='text-white w-[85%] font-gabarito flex flex-col m-auto'>
             <h1 className='text-2xl font-bold mt-10 m-auto'>Sobre Nós: A Jornada da Luta e Disciplina</h1>
             <br/>
             <p>Bem-vindo à nossa loja de produtos de luta e artes marciais! Aqui, a paixão pela força, a busca pela excelência e a disciplina se entrelaçam para criar uma experiência única para nossos clientes.</p>

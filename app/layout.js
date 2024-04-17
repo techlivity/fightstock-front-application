@@ -1,6 +1,19 @@
 import { Providers } from "./providers";
-
+import { Climate_Crisis, Gabarito } from 'next/font/google'
 import "./globals.css";
+
+const climate = Climate_Crisis({
+  subsets: ['latin'],
+  variable: '--font-climate',
+  display: 'swap',
+})
+ 
+const gabarito = Gabarito({
+  subsets: ['latin'],
+  variable: '--font-gabarito',
+  display: 'swap',
+})
+
 
 export const metadata = {
   title: "Fight Stock, o poder está nas suas mãos!",
@@ -11,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className='dark'>
 
-      <body className="font-protest-guerrila">
+      <body className={`${climate.variable} ${gabarito.variable}`}>
         <Providers>
           {children}
         </Providers>

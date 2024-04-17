@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main>
       <Nav_bar_component data={data.nav_bar}></Nav_bar_component>
-        <div className='text-white w-[85%] flex flex-col m-auto'>
+        <div className='text-white w-[85%] font-gabarito flex flex-col m-auto'>
             <h1 className='text-2xl font-bold mt-10 m-auto'>Termos de Serviço - Fight Stock</h1>
             <br/>
             <p className='m-auto'>Estes Termos de Serviço regem o uso do nosso website e os serviços oferecidos pela Fight Stock. Ao acessar ou usar nosso site, você concorda com estes Termos.</p>

@@ -11,8 +11,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'nunito': ['nunito', 'sans-serif'],
-      'protest-guerrila': ['Protest Guerrilla', 'sans-serif']
+      gabarito: ['var(--font-gabarito)'],
+      climate: ['var(--font-climate)'],
     },
     extend: {
       backgroundImage: {

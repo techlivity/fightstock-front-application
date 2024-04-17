@@ -28,7 +28,7 @@ export default function Page() {
                     <form className="w-full space-y-2 flex flex-col" action="/processar-cadastro" method="post">
                         <div className='flex flex-row items-center space-x-2'>
                             <EnvelopeIcon className="h-8 w-8 text-[#FFFFFF]" />
-                            <label className="font-protest-guerrila text-xl w-full" htmlFor="login">Email Cadastrado:</label>
+                            <label className="font-gabarito text-xl w-full" htmlFor="login">Email Cadastrado:</label>
                         </div>
                         <input
                             className="rounded-md px-4 py-1 w-[100%] text-slate-900 outline-none"
@@ -43,7 +43,7 @@ export default function Page() {
 
                         <div className='flex flex-row items-center space-x-2'>
                             <LockClosedIcon className="h-7 w-7 text-[#FFFFFF]" />
-                            <label className="font-protest-guerrila text-xl w-full" htmlFor="senha">Nova Senha:</label>
+                            <label className="font-gabarito text-xl w-full" htmlFor="senha">Nova Senha:</label>
                         </div>
                         <input
                             className="rounded-md px-4 py-1 w-[100%] text-slate-900 outline-none"
@@ -59,29 +59,29 @@ export default function Page() {
                         />
                         <div className='flex justify-center'>
                             <button type='submit' className='flex mt-2 items-center w-[4rem] bg-[#1d942d] hover:bg-[#17421d] hover:w-[24%] duration-200 ease-in py-2 rounded-xl overflow-hidden'>
-                                <span className="ml-3 font-protest-guerrila">Salvar</span>
+                                <span className="ml-3 font-gabarito">Salvar</span>
                                 <CheckIcon className="relative left-2 h-6 w-6 text-[#FFFFFF]" />
                             </button>
                         </div>
                     </form>
                     <div className="flex flex-row mt-5">
-                        <Link prefetch={true} className="flex flex-row font-protest-guerrila items-center text-xl cursor-pointer hover:text-green-800 duration-200 ease-in" href="/criar-conta">
+                        <Link prefetch={true} className="flex flex-row font-gabarito items-center text-xl cursor-pointer hover:text-green-800 duration-200 ease-in" href="/criar-conta">
                             <UserPlusIcon className="h-6 w-6 mr-1" />
                             <span>Cadastre-se</span>
                         </Link>
                         <span className="px-4">/</span>
-                        <Link prefetch={true} className="flex flex-row font-protest-guerrila items-center text-xl hover:text-green-800 duration-200 ease-in" href="/login">
+                        <Link prefetch={true} className="flex flex-row font-gabarito items-center text-xl hover:text-green-800 duration-200 ease-in" href="/login">
                             <UserCircleIcon className="h-6 w-6 mr-1" />
                             <span>Lembrei minha senha</span>
                         </Link>
                     </div>
-                    <Link prefetch={true} className="flex flex-row gap-1 font-protest-guerrila items-center text-[#FFFFFF] text-lg hover:text-gray-500 mt-5 mb-28 duration-200 ease-in" href="/">
+                    <Link prefetch={true} className="flex flex-row gap-1 font-gabarito items-center text-[#FFFFFF] text-lg hover:text-gray-500 mt-5 mb-28 duration-200 ease-in" href="/">
                         <ArrowUturnLeftIcon className="h-6 w-6" />
                         <span>Página inicial</span>
                     </Link>
                  
                     <div id='slogan' className="mb-32"> 
-                        <pre id='sloganTxt' className='font-protest-guerrila text-3xl opacity-0'>O poder está em suas mãos!</pre>
+                        <pre id='sloganTxt' className='font-climate text-lg opacity-0'>O poder está em suas mãos!</pre>
                     </div> 
                 </div>
             </div>

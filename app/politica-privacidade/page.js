@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main>
       <Nav_bar_component data={data.nav_bar}></Nav_bar_component>
-        <div className='text-white w-[85%] flex flex-col m-auto'>
+        <div className='text-white w-[85%] font-gabarito flex flex-col m-auto'>
             <h1 className='text-2xl font-bold mt-10 m-auto'>Política de Privacidade - Fight Stock</h1>
             <br/>
             <p className='m-auto'>Estas Políticas de Privacidade descrevem como coletamos, usamos e protegemos as informações pessoais que você nos fornece ao utilizar nosso site.</p>
