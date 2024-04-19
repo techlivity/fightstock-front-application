@@ -28,10 +28,10 @@ export default function Page() {
                     <form className="w-full space-y-2 flex flex-col" action="/processar-cadastro" method="post">
                         <div className='flex flex-row items-center space-x-2'>
                             <UserCircleIcon className="h-8 w-8 text-[#FFFFFF]" />
-                            <label className="font-gabarito text-xl w-full" htmlFor="login">Login:</label>
+                            <label className="font-oswald text-xl w-full" htmlFor="login">Login:</label>
                         </div>
                         <input
-                            className="rounded-md px-4 py-1 w-[100%] text-slate-900 outline-none"
+                            className="rounded-md font-oswald px-4 py-1 w-[100%] text-slate-900 outline-none"
                             type="email"
                             id="login"
                             name="login"
@@ -43,10 +43,10 @@ export default function Page() {
 
                         <div className='flex flex-row items-center space-x-2'>
                             <LockClosedIcon className="h-7 w-7 text-[#FFFFFF]" />
-                            <label className="font-gabarito text-xl w-full" htmlFor="senha">Senha:</label>
+                            <label className="font-oswald text-xl w-full" htmlFor="senha">Senha:</label>
                         </div>
                         <input
-                            className="rounded-md px-4 py-1 w-[100%] text-slate-900 outline-none"
+                            className="rounded-md font-oswald px-4 py-1 w-[100%] text-slate-900 outline-none"
                             type="password"
                             id="senha"
                             name="senha"
@@ -59,24 +59,24 @@ export default function Page() {
                         />
                         <div className='flex justify-center'>
                             <button type='submit' className='flex mt-2 items-center w-[5.3rem] bg-[#1d942d] hover:bg-[#17421d] hover:w-[7.5rem] duration-200 ease-in py-2 rounded-xl overflow-hidden'>
-                                <span className="ml-3 w-fit font-gabarito">Cadastrar</span>
+                                <span className="ml-[0.85rem] w-fit font-oswald text-lg">Cadastrar</span>
                                 <CheckCircleIcon className="relative left-2 h-6 w-6 text-[#FFFFFF]" />
                             </button>
                         </div>
                     </form>
                     <div className="flex flex-row mt-5">
-                        <Link prefetch={true} className="flex flex-row font-gabarito text-xl items-center cursor-pointer hover:text-green-800 duration-200 ease-in" href="/login">
+                        <Link prefetch={true} className="flex flex-row font-oswald text-xl items-center cursor-pointer hover:text-green-800 duration-200 ease-in" href="/login">
                             <UserCircleIcon className="h-6 w-6 mr-1" />
                             <span>Já cadastrado? Acesse!</span>
                         </Link>
                     </div>
-                    <Link prefetch={true} className="flex flex-row gap-1 font-gabarito items-center text-[#FFFFFF] text-lg hover:text-gray-500 mt-5 mb-28 duration-200 ease-in" href="/">
+                    <Link prefetch={true} className="flex flex-row gap-1 font-oswald items-center text-[#FFFFFF] text-lg hover:text-gray-500 mt-5 mb-28 duration-200 ease-in" href="/">
                         <ArrowUturnLeftIcon className="h-6 w-6" />
                         <span>Página inicial</span>
                     </Link>
                  
                     <div id='slogan' className="mb-32"> 
-                        <pre id='sloganTxt' className='font-climate text-lg opacity-0'>O poder está em suas mãos!</pre>
+                        <pre id='sloganTxt' className='font-merienda text-2xl opacity-0'>O poder está em suas mãos!</pre>
                     </div> 
                 </div>
             </div>

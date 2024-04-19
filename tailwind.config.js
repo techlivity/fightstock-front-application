@@ -13,6 +13,10 @@ module.exports = {
     fontFamily: {
       gabarito: ['var(--font-gabarito)'],
       climate: ['var(--font-climate)'],
+      oswald: ['var(--font-oswald)'],
+      dynaPuff: ['var(--font-dynaPuff)'],
+      signika: ['var(--font-signika)'],
+      merienda: ['var(--font-merienda)'],
     },
     extend: {
       backgroundImage: {

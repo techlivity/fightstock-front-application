@@ -25,7 +25,7 @@ const ProductList_Component = ({ items }) => {
           <h1 className='font-climate flex text-2xl mb-10 text-zinc-50 drop-shadow-lg'>Confira nossos produtos</h1>
         </div>
         {items.produtos.map(item => (
-          <div key={item.id} className="flex text-[#FFFFFF]  justify-center font-gabarito rounded-3xl h-[300px] w-[15rem]">
+          <div key={item.id} className="flex text-[#FFFFFF]  justify-center font-dynaPuff rounded-3xl h-[300px] w-[15rem]">
             <button className='flex justify-center'>
               <h1 className="absolute text-xl mt-3 font-semibold">{item.titulo}</h1>
               <Image className='h-[300px] w-[15rem] shadow-md shadow-black rounded-2xl' height={300} width={240} src={item.image} alt="product image" />
@@ -42,13 +42,13 @@ const ProductList_Component = ({ items }) => {
         {items.produtos_em_promocoes.map(item_especial => {
 
           return (
-            <div key={item_especial.id} className="flex text-[#FFF] mt-10 font-gabarito relative justify-center">
+            <div key={item_especial.id} className="flex text-[#FFF] mt-10 relative justify-center">
               <div className="flex flex-wrap gap-3">
                 <Button
                   onPress={() => { setSelectedProduct(item_especial); onOpen(); }}
                   className="capitalize h-[18.75rem] w-[15rem] gap-0 p-0 flex justify-center shadow-md shadow-black rounded-2xl"
                 >
-                  <h1 className="absolute text-md mt-64 font-gabarito">{item_especial.titulo}</h1>
+                  <h1 className="absolute text-md mt-64 font-dynaPuff">{item_especial.titulo}</h1>
                   <Image className='h-full w-[15rem] rounded-2xl' height={300} width={240} src={item_especial.image} alt="promo product image" />
                   <span className='w-0'>
                     <MagnifyingGlassIcon className="h-6 w-6 relative right-56 bottom-28 text-[#000]" />
@@ -75,16 +75,16 @@ const ProductList_Component = ({ items }) => {
                     <Image loading='eager' className='rounded-2xl' height={300} width={240} alt="promo product image" src={selectedProduct.image}></Image>
                   </div>
                   <div className='flex flex-col gap-4 w-full'>
-                    <ModalHeader className="flex flex-col mx-auto p-0 capitalize">{selectedProduct.titulo}</ModalHeader>
-                    <ModalBody className='pb-0 pt-0'>
+                    <ModalHeader className="flex flex-col mx-auto font-dynaPuff p-0 capitalize">{selectedProduct.titulo}</ModalHeader>
+                    <ModalBody className='pb-0 font-signika pt-0'>
                       <p>{selectedProduct.descricao}</p>
                     </ModalBody>
                     <ModalFooter className='p-0'>
-                      <Button color="danger" variant="light" onPress={onClose}>
+                      <Button className='font-signika' color="danger" variant="light" onPress={onClose}>
                         Fechar
                       </Button>
                         <Link target='blank' href={`https://api.whatsapp.com/send?phone=555596053783&text=Olá, me interessei no seguinte produto: ${encodeURIComponent(selectedProduct.titulo)}`+ `. Poderia me fornecer mais informações sobre?`}>
-                          <Button className='bg-[#25D366] hover:bg-[#2c7e4a]' color="primary" onPress={onClose}>
+                          <Button className='bg-[#25D366] hover:bg-[#2c7e4a] font-signika' color="primary" onPress={onClose}>
                               Saiba mais!
                               <Image className='h-6 w-6' src={whatsappLogo} alt='whatsappLogo'></Image>
                           </Button>

@@ -22,20 +22,20 @@ const Footer = ({ footer }) => {
 
   return (
     <footer className="w-full h-fit py-2 bottom-0 bg-[#420D09] text-white pb-2 px-8 mt-8 flex flex-row">
-      <a href='/'>  
+      <a className='m-auto' href='/'>  
         <Image className="w-40 mr-40" src={logo} alt="logo image"></Image>
       </a>
-      <div className="w-full items-center font-gabarito grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="w-full justify-center font-signika grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         <div className='w-fit flex flex-col'>
-          <h2 className="font-gabarito text-lg">Links Úteis</h2>
+          <h2 className="font-signika text-xl">Links Úteis</h2>
           {renderFooterLinks()}
         </div>
         <div className='w-fit flex flex-col'>
-          <h2 className="font-gabarito text-lg">Redes Sociais</h2>
+          <h2 className="font-signika text-xl">Redes Sociais</h2>
           {renderRedesSociais()}
         </div>
         <div>
-          <h2 className="font-gabarito text-lg">Contato</h2>
+          <h2 className="font-signika text-xl">Contato</h2>
           <p>{footer.contato.telefone}</p>
           <p>{footer.contato.email}</p>
           <p>{footer.contato.endereco}</p>

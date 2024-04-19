@@ -1,5 +1,5 @@
 import { Providers } from "./providers";
-import { Climate_Crisis, Gabarito } from 'next/font/google'
+import { Climate_Crisis, Gabarito, Oswald, DynaPuff, Signika, Merienda } from 'next/font/google'
 import "./globals.css";
 
 const climate = Climate_Crisis({
@@ -14,6 +14,30 @@ const gabarito = Gabarito({
   display: 'swap',
 })
 
+const oswald = Oswald({
+  subsets: ['latin'],
+  variable: '--font-oswald',
+  display: 'swap',
+})
+ 
+const dynaPuff = DynaPuff({
+  subsets: ['latin'],
+  variable: '--font-dynaPuff',
+  display: 'swap',
+})
+
+const signika = Signika({
+  subsets: ['latin'],
+  variable: '--font-signika',
+  display: 'swap',
+})
+
+const merienda = Merienda({
+  subsets: ['latin'],
+  variable: '--font-merienda',
+  display: 'swap',
+})
+
 
 export const metadata = {
   title: "Fight Stock, o poder está nas suas mãos!",
@@ -24,7 +48,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className='dark'>
 
-      <body className={`${climate.variable} ${gabarito.variable}`}>
+      <body className={`${climate.variable} ${gabarito.variable} ${oswald.variable} ${dynaPuff.variable} ${signika.variable} ${merienda.variable} `}>
         <Providers>
           {children}
         </Providers>
