@@ -4,6 +4,8 @@ import logo from "../public/logo.png"
 import React from "react";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Avatar} from "@nextui-org/react";
 import { UserCircleIcon } from '@heroicons/react/24/solid'
+import ChevronDownIcon from "@heroicons/react/24/solid/ChevronDownIcon";
+
 
 const Nav_bar_component = ({ data }) => {
     let listaCategorias = [
@@ -52,8 +54,9 @@ const Nav_bar_component = ({ data }) => {
                     <NavbarItem>
                         <Dropdown className="bg-[#800000]">
                             <DropdownTrigger >
-                                <Link className="bg-transparent font-signika font-semibold text-xl text-white cursor-pointer">
+                                <Link className="bg-transparent font-signika font-semibold text-xl text-white cursor-pointer flex items-center">
                                     Categorias
+                                    <ChevronDownIcon className="h-5 w-5 ml-1" />
                                 </Link>
                             </DropdownTrigger>
                             <DropdownMenu

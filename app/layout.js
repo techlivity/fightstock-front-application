@@ -46,7 +46,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className='dark'>
+    <html lang="en" className="w-full h-[100vh] dark">
 
       <body className={`${climate.variable} ${gabarito.variable} ${oswald.variable} ${dynaPuff.variable} ${signika.variable} ${merienda.variable} `}>
         <Providers>

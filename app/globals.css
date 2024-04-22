@@ -25,6 +25,10 @@ body {
   background-color: #252020;
 }
 
+svg {
+  color: #fff,
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
