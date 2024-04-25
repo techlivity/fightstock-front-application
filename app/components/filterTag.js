@@ -11,10 +11,10 @@ import Button  from '@mui/material/Button';
 
 export default function FilterTag({ categoria }) {
 
-    const [age, setAge] = React.useState('');
+    const [value, setValue] = React.useState('');
 
     const handleChange = (event) => {
-        setAge(event.target.value);
+        setValue(event.target.value);
     };
     return (
         <div className="flex flex-wrap justify-center gap-10 mt-8">
@@ -36,7 +36,7 @@ export default function FilterTag({ categoria }) {
                 <label className='text-rose-600 underline decoration-solid'>Exibir: </label>
                 <FormControl sx={{ m: 1, minWidth: 120 }}>
                     <Select
-                        value={age}
+                        value={value}
                         onChange={handleChange}
                         displayEmpty
                         inputProps={{ 'aria-label': 'Without label' }}
