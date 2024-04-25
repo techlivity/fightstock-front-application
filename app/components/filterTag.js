@@ -53,7 +53,7 @@ export default function FilterTag({ categoria }) {
                 <label className='text-rose-600 underline decoration-solid'>Filtrar por: </label>
                 <FormControl sx={{ m: 1, minWidth: 120 }}>
                     <Select
-                        value={age}
+                        value={value}
                         onChange={handleChange}
                         displayEmpty
                         inputProps={{ 'aria-label': 'Without label' }}
