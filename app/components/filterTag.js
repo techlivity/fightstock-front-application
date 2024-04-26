@@ -51,24 +51,57 @@ export default function FilterTag({ categoria }) {
     ]
 
     const [exibirQuantidade, setExibirQuantidade] = useState(10);
+    const [nomeProduto, setNomeProduto] = useState('');
+    const [produtoEncontrado, setProdutoEncontrado] = useState(null);
 
-    const handleExibirChange = (quantidade) => {
+    const guardaExibirAlteracao = (quantidade) => {
       setExibirQuantidade(quantidade);
       console.log("DEBUG: " + quantidade)
     };
 
+    const guardaNomeProduto = (nome) => {
+        setNomeProduto(nome)
+        console.log(nome)
+    }
+
+    const enviaEventoNomeProduto = () => {
+        if(nomeProduto.trim() !== '') {
+            const produtoEncontrado = data.produtos.find(produto => produto.name === nomeProduto);
+            console.log(produtoEncontrado)
+            if(produtoEncontrado) {
+                console.log("DEBUG: " + "Produto encontrado:", produtoEncontrado);
+                setProdutoEncontrado(produtoEncontrado);
+            } else {
+                console.log("DEBUG: " + "Produto não encontrado");
+                setProdutoEncontrado(null); 
+            }
+        } else {
+            console.log("DEBUG: " + "Nome do produto vazio");
+            setProdutoEncontrado(null);
+        }
+    };
+
+    const preencheEspecificacaoDaApi = () => {
+        let produtosExibidos;
+        if(produtoEncontrado) {
+            produtosExibidos = [produtoEncontrado];
+        } else {
+            produtosExibidos = exibirQuantidade ? data.produtos.slice(0, exibirQuantidade) : data.produtos;
+        }
+        return produtosExibidos;
+    };
     return (
         <>
         <div className="flex justify-center mt-8">
             <div className="bg-black-200 flex justify-between w-[75%]">
-                <Input className="pr-4 w-[150%]" type="search" label="pesquisa" placeholder="Pesquise através do nome" />
-                <Button className="relative mt-3 pl-2 pr-5 px-10" size="md" color="primary">Pesquisar</Button>
+                <Input onChange={(e) => guardaNomeProduto(e.target.value)} className="pr-4 w-[150%]" type="search" label="pesquisa" placeholder="Pesquise através do nome" />
+                <Button onClick={() => enviaEventoNomeProduto()} className="relative mt-3 pl-2 pr-5 px-10" size="md" color="primary">Pesquisar</Button>
                 <label className='mt-3 pl-5 pr-5 font-signika font-semibold text-rose-600 decoration-solid'>Exibir: </label>
                 <Select
                     className="mb-3 w-[40%]"
                     placeholder='10'
                     size='sm'
-                    onChange={(e) => handleExibirChange(e.target.value)}
+                    onChange={(e) => guardaExibirAlteracao(e.target.value)}
                     value={exibirQuantidade}
                 >
                     {exibir.map(item => (
@@ -104,7 +137,7 @@ export default function FilterTag({ categoria }) {
             </div>
         </div>
 
-        <ProductList_Component items={data.produtos.slice(0, exibirQuantidade)}></ProductList_Component>
+        <ProductList_Component items={preencheEspecificacaoDaApi()}></ProductList_Component>
         </>
     )
 

@@ -8,7 +8,7 @@
     "produtos": [
         {
             "id": 1,
-            "name": "bastão em espiral",
+            "name": "coringa",
             "image": "https://i.postimg.cc/CKfrdhs7/bastao.jpg",
             "description": "Este bastão em espiral é uma arma de treinamento ideal para praticantes de artes marciais que desejam aprimorar suas habilidades de defesa pessoal. Feito de materiais duráveis, apresenta um design em espiral que proporciona uma aderência confortável e segura durante o uso. Seu tamanho e peso o tornam adequado para treinamento tanto em ambientes fechados quanto ao ar livre.",
             "featured": true,
