@@ -12,7 +12,6 @@ export default function Page({ params }) {
       <Nav_bar_component data={data.nav_bar}></Nav_bar_component>
       <Carousel_Component items={data.carrossel}></Carousel_Component>
       <FilterTag categoria={params}></FilterTag>
-      <Product_Component items={data}></Product_Component>
       <Footer footer={data.footer}></Footer>
     </main>
   )

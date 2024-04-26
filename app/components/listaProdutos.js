@@ -19,7 +19,7 @@ const Product_Component = ({ items }) => {
     <div className="flex flex-wrap justify-center gap-10 mt-8">
       <div className='flex flex-wrap justify-between w-[75%] h-auto'>
 
-        {items.produtos_em_promocoes.map(item_especial => {
+        {items.map(item_especial => {
 
           return (
             <div key={item_especial.id} className="flex text-[#FFF] mt-10 relative justify-center">

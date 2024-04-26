@@ -1,8 +1,10 @@
 "use client"
-import * as React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@nextui-org/react";
 import { Input } from "@nextui-org/react";
 import { Select, SelectItem } from "@nextui-org/react";
+import data from "../mockCategory.json";
+import ProductList_Component from './listaProdutos';
 
 
 export default function FilterTag({ categoria }) {
@@ -48,7 +50,15 @@ export default function FilterTag({ categoria }) {
         }
     ]
 
+    const [exibirQuantidade, setExibirQuantidade] = useState(10);
+
+    const handleExibirChange = (quantidade) => {
+      setExibirQuantidade(quantidade);
+      console.log("DEBUG: " + quantidade)
+    };
+
     return (
+        <>
         <div className="flex justify-center mt-8">
             <div className="bg-black-200 flex justify-between w-[75%]">
                 <Input className="pr-4 w-[150%]" type="search" label="pesquisa" placeholder="Pesquise através do nome" />
@@ -58,6 +68,8 @@ export default function FilterTag({ categoria }) {
                     className="mb-3 w-[40%]"
                     placeholder='10'
                     size='sm'
+                    onChange={(e) => handleExibirChange(e.target.value)}
+                    value={exibirQuantidade}
                 >
                     {exibir.map(item => (
                         <SelectItem key={item.value} value={item.value}>
@@ -91,6 +103,9 @@ export default function FilterTag({ categoria }) {
                 </Select>
             </div>
         </div>
+
+        <ProductList_Component items={data.produtos.slice(0, exibirQuantidade)}></ProductList_Component>
+        </>
     )
 
 }
