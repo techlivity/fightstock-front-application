@@ -1,71 +1,94 @@
 "use client"
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import data from '../api.json'
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import TextField from '@mui/material/TextField';
-import Button  from '@mui/material/Button';
+import { Button } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
+import { Select, SelectItem } from "@nextui-org/react";
 
 
 export default function FilterTag({ categoria }) {
+    //constantes criados apenas para teste, devo criar uma entidade depois para obtenção
+    const filtros = [
+        {
+            value: "Nenhum"
+        },
+        {
+            value: "Em destaques"
+        },
+        {
+            value: "Em promoções"
+        }
+    ]
+    const exibir = [
+        {
+            value: 10,
+            label: "10"
+        },
+        {
+            value: 20,
+            label: "20"
+        },
+        {
+            value: 30,
+            label: "30"
+        },
+        {
+            value: 50,
+            label: "50"
+        }
+    ]
+    const ordenar = [
+        {
+            value: "Nenhum"
+        },
+        {
+            value: "Ordem alfabetica"
+        },
+        {
+            value: "novidades"
+        }
+    ]
 
-    const [value, setValue] = React.useState('');
-
-    const handleChange = (event) => {
-        setValue(event.target.value);
-    };
     return (
-        <div className="flex flex-wrap justify-center gap-10 mt-8">
-            <div className="bg-gray-200 flex justify-between w-[75%] h-auto">
-                <Box
-                    component="form"
-                    sx={{
-                        '& .MuiTextField-root': { m: 1, width: '25ch' },
-                    }}
-                    noValidate
-                    autoComplete="off"
-                ></Box>
-                <TextField fullWidth sx={{ m: 1 }}
-                    id="filled-search"
-                    label="Pesquise o produto"
-                    type="search"
-                />
-                <Button color="primary" size="medum" variant="contained">Pesquisar</Button>
-                <label className='text-rose-600 underline decoration-solid'>Exibir: </label>
-                <FormControl sx={{ m: 1, minWidth: 120 }}>
-                    <Select
-                        value={value}
-                        onChange={handleChange}
-                        displayEmpty
-                        inputProps={{ 'aria-label': 'Without label' }}
-                    >
-                        <MenuItem value={""}>
-                            <em>10</em>
-                        </MenuItem>
-                        <MenuItem value={10}></MenuItem>
-                        <MenuItem value={20}>20</MenuItem>
-                        <MenuItem value={30}>30</MenuItem>
-                        <MenuItem value={100}>Máximo</MenuItem>
-                    </Select>
-                </FormControl>
-                <label className='text-rose-600 underline decoration-solid'>Filtrar por: </label>
-                <FormControl sx={{ m: 1, minWidth: 120 }}>
-                    <Select
-                        value={value}
-                        onChange={handleChange}
-                        displayEmpty
-                        inputProps={{ 'aria-label': 'Without label' }}
-                    >
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={'alfabetica'}>Ordem alfabetica a-Z</MenuItem>
-                        <MenuItem value={'Em destaques'}>Em destaques</MenuItem>
-                        <MenuItem value={'Em promoções'}>Em promoções</MenuItem>
-                    </Select>
-                </FormControl>
+        <div className="flex justify-center mt-8">
+            <div className="bg-black-200 flex justify-between w-[75%]">
+                <Input className="pr-4 w-[150%]" type="search" label="pesquisa" placeholder="Pesquise através do nome" />
+                <Button className="relative mt-3 pl-2 pr-5 px-10" size="md" color="primary">Pesquisar</Button>
+                <label className='mt-3 pl-5 pr-5 font-signika font-semibold text-rose-600 underline decoration-solid'>Exibir: </label>
+                <Select
+                    className="mb-3 w-[40%]"
+                    placeholder='10'
+                    size='sm'
+                >
+                    {exibir.map(item => (
+                        <SelectItem key={item.value} value={item.value}>
+                            {item.label}
+                        </SelectItem>
+                    ))}
+                </Select>
+                <label className='pl-5 pr-5 font-signika font-semibold text-rose-600 underline decoration-solid'>Filtrar por: </label>
+                <Select
+                    className="mb-3 w-[40%]"
+                    placeholder='filtro'
+                    size='sm'
+                >
+                    {filtros.map(item => (
+                        <SelectItem key={item.value} value={item.value}>
+                            {item.value}
+                        </SelectItem>
+                    ))}
+                </Select>
+                <label className='pl-5 pr-5 font-signika font-semibold text-rose-600 underline decoration-solid'>Ordenar por: </label>
+                <Select
+                    className="mb-3 w-[40%]"
+                    placeholder='ordena'
+                    size='sm'
+                >
+                    {ordenar.map(item => (
+                        <SelectItem key={item.value} value={item.value}>
+                            {item.value}
+                        </SelectItem>
+                    ))}
+                </Select>
             </div>
         </div>
     )
