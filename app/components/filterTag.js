@@ -53,7 +53,7 @@ export default function FilterTag({ categoria }) {
             <div className="bg-black-200 flex justify-between w-[75%]">
                 <Input className="pr-4 w-[150%]" type="search" label="pesquisa" placeholder="Pesquise através do nome" />
                 <Button className="relative mt-3 pl-2 pr-5 px-10" size="md" color="primary">Pesquisar</Button>
-                <label className='mt-3 pl-5 pr-5 font-signika font-semibold text-rose-600 underline decoration-solid'>Exibir: </label>
+                <label className='mt-3 pl-5 pr-5 font-signika font-semibold text-rose-600 decoration-solid'>Exibir: </label>
                 <Select
                     className="mb-3 w-[40%]"
                     placeholder='10'
@@ -65,7 +65,7 @@ export default function FilterTag({ categoria }) {
                         </SelectItem>
                     ))}
                 </Select>
-                <label className='pl-5 pr-5 font-signika font-semibold text-rose-600 underline decoration-solid'>Filtrar por: </label>
+                <label className='pl-5 pr-5 font-signika font-semibold text-rose-600 decoration-solid'>Filtrar por: </label>
                 <Select
                     className="mb-3 w-[40%]"
                     placeholder='filtro'
@@ -77,7 +77,7 @@ export default function FilterTag({ categoria }) {
                         </SelectItem>
                     ))}
                 </Select>
-                <label className='pl-5 pr-5 font-signika font-semibold text-rose-600 underline decoration-solid'>Ordenar por: </label>
+                <label className='pl-5 pr-5 font-signika font-semibold text-rose-600 decoration-solid'>Ordenar por: </label>
                 <Select
                     className="mb-3 w-[40%]"
                     placeholder='ordena'
