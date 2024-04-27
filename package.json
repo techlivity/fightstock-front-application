@@ -34,6 +34,7 @@
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18",
     "react-google-recaptcha": "^3.1.0",
+    "react-scroll-to-top": "^3.0.0",
     "react-slick": "^0.30.2",
     "sharp": "^0.33.3",
     "simple-icons": "^11.12.0",

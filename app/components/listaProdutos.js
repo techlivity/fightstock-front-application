@@ -6,6 +6,7 @@ import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
 import whatsappLogo from "../public/whatsapp.png"
 import Link from 'next/link';
+import ScrollToTop from "react-scroll-to-top";
 
 
 const Product_Component = ({ items }) => {
@@ -15,7 +16,15 @@ const Product_Component = ({ items }) => {
   return (
     <div className="flex flex-wrap justify-center gap-10 mt-8">
       <div className='flex flex-wrap justify-between w-[75%] h-auto'>
-
+        <ScrollToTop
+          width="40"
+          height="40"
+          style={{
+            borderRadius: "50%",
+            marginLeft: "5px",
+            display: "flex",
+            justifyContent: "center"
+          }} smooth color="red" />
         {items.map(item_especial => {
 
           return (
@@ -60,12 +69,14 @@ const Product_Component = ({ items }) => {
                       <Button className='font-signika' color="danger" variant="light" onPress={onClose}>
                         Fechar
                       </Button>
-                        <Link target='blank' href={`https://api.whatsapp.com/send?phone=555596053783&text=Olá, me interessei no seguinte produto: ${encodeURIComponent(selectedProduct.nome)}`+ `. Poderia me fornecer mais informações sobre?`}>
-                          <Button className='bg-[#25D366] hover:bg-[#2c7e4a] font-signika' color="primary" onPress={onClose}>
-                              Saiba mais!
-                              <Image className='h-6 w-6' src={whatsappLogo} alt='whatsappLogo'></Image>
-                          </Button>
-                        </Link>
+                      <Link 
+                        target='blank'
+                        href={`https://api.whatsapp.com/send?phone=555596053783&text=Olá, me interessei no seguinte produto: ${encodeURIComponent(selectedProduct.nome)}` + `. Poderia me fornecer mais informações sobre?`}>
+                        <Button className='bg-[#25D366] hover:bg-[#2c7e4a] font-signika' color="primary" onPress={onClose}>
+                          Saiba mais!
+                          <Image className='h-6 w-6' src={whatsappLogo} alt='whatsappLogo'></Image>
+                        </Button>
+                      </Link>
                     </ModalFooter>
                   </div>
                 </div>
