@@ -1,10 +1,8 @@
-"use cliente"
 import data from "../../api.json";
 import Nav_bar_component from '../../components/nav';
 import Footer from "../../components/footer"
 import Carousel_Component from "@/app/components/carousel";
 import FilterTag from "@/app/components/filterTag";
-import Product_Component from "@/app/components/listaProdutos";
 
 export default function Page({ params }) {
   return (

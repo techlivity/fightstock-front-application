@@ -19,8 +19,8 @@ const Product_Component = ({ items }) => {
         {items.map(item_especial => {
 
           return (
-            <div key={item_especial.id} className="flex text-[#FFF] mt-10 relative justify-center">
-              <div className="flex flex-wrap gap-3">
+            <div key={item_especial.id} className="flex-row text-[#FFF] mt-10 relative justify-center">
+              <div className="flex flex-row gap-3">
                 <Button
                   onPress={() => { setSelectedProduct(item_especial); onOpen(); }}
                   className="capitalize h-[18.75rem] w-[15rem] gap-0 p-0 flex justify-center shadow-md shadow-black rounded-2xl"

@@ -22,20 +22,20 @@ export default function FilterTag({ categoria }) {
     ]
     const exibir = [
         {
-            value: 10,
-            label: "10"
+            value: 16,
+            label: "16"
         },
         {
-            value: 20,
-            label: "20"
+            value: 24,
+            label: "24"
         },
         {
-            value: 30,
-            label: "30"
+            value: 32,
+            label: "32"
         },
         {
-            value: 50,
-            label: "50"
+            value: 40,
+            label: "40"
         }
     ]
     const ordenar = [
@@ -53,6 +53,8 @@ export default function FilterTag({ categoria }) {
     const [exibirQuantidade, setExibirQuantidade] = useState(10);
     const [nomeProduto, setNomeProduto] = useState('');
     const [produtoEncontrado, setProdutoEncontrado] = useState(null);
+    const [isInvalid, setIsInvalid] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const guardaExibirAlteracao = (quantidade) => {
       setExibirQuantidade(quantidade);
@@ -64,21 +66,32 @@ export default function FilterTag({ categoria }) {
         console.log(nome)
     }
 
-    const enviaEventoNomeProduto = () => {
+    const eventoClickBotaoTrataNomeProduto = () => {
         if(nomeProduto.trim() !== '') {
             const produtoEncontrado = data.produtos.find(produto => produto.name === nomeProduto);
             console.log(produtoEncontrado)
             if(produtoEncontrado) {
                 console.log("DEBUG: " + "Produto encontrado:", produtoEncontrado);
                 setProdutoEncontrado(produtoEncontrado);
+                setIsInvalid(false);
+                setErrorMessage('');
             } else {
                 console.log("DEBUG: " + "Produto não encontrado");
                 setProdutoEncontrado(null); 
+                setIsInvalid(true);
+                setErrorMessage('O texto inserido não é o esperado.');
             }
         } else {
             console.log("DEBUG: " + "Nome do produto vazio");
             setProdutoEncontrado(null);
+            setIsInvalid(true);
+            setErrorMessage('O produto não foi encontrado.');
         }
+
+        setTimeout(() => {
+            setIsInvalid(false);
+            setErrorMessage('');
+          }, 3000);
     };
 
     const preencheEspecificacaoDaApi = () => {
@@ -90,16 +103,32 @@ export default function FilterTag({ categoria }) {
         }
         return produtosExibidos;
     };
+
+    const validaNomeEncontrado = (produtoEncontrado) => {
+        console.log("validaNomeEncontrado  " + produtoEncontrado)
+        if(produtoEncontrado) {
+            return false
+        }else if(produtoEncontrado == null || !produtoEncontrado !== '') {
+            return true
+        }else {
+            return false
+        }
+    }
+
     return (
         <>
         <div className="flex justify-center mt-8">
-            <div className="bg-black-200 flex justify-between w-[75%]">
-                <Input onChange={(e) => guardaNomeProduto(e.target.value)} className="pr-4 w-[150%]" type="search" label="pesquisa" placeholder="Pesquise através do nome" />
-                <Button onClick={() => enviaEventoNomeProduto()} className="relative mt-3 pl-2 pr-5 px-10" size="md" color="primary">Pesquisar</Button>
+                <div className="bg-black-200 flex justify-between w-[75%]">
+                    <Input
+                        isInvalid={isInvalid}
+                        errorMessage={errorMessage}
+                        onChange={(e) => guardaNomeProduto(e.target.value)} 
+                        className="pr-4 w-[150%]" type="search" label="pesquisa" placeholder="Pesquise através do nome" />
+                <Button onClick={() => eventoClickBotaoTrataNomeProduto()} className="relative mt-3 pl-2 pr-5 px-10" size="md" color="primary">Pesquisar</Button>
                 <label className='mt-3 pl-5 pr-5 font-signika font-semibold text-rose-600 decoration-solid'>Exibir: </label>
                 <Select
                     className="mb-3 w-[40%]"
-                    placeholder='10'
+                    placeholder='16'
                     size='sm'
                     onChange={(e) => guardaExibirAlteracao(e.target.value)}
                     value={exibirQuantidade}
