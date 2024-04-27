@@ -18,13 +18,14 @@ import {
   Pagination,
   Tooltip
 } from "@nextui-org/react";
+
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
 import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
-import {columns, users, statusOptions} from "./data";
+import {columns, banners, statusOptions} from "./data";
 import {capitalize} from "./utils";
 
 const statusColorMap = {
@@ -33,9 +34,9 @@ const statusColorMap = {
   vacation: "warning",
 };
 
-const INITIAL_VISIBLE_COLUMNS = ["name", "role", "status", "actions"];
+const INITIAL_VISIBLE_COLUMNS = ["id", "name", "image", "description", "status", "actions"];
 
-export default function RenderUsers() {
+export default function RenderBanners() {
   const [filterValue, setFilterValue] = React.useState("");
   const [selectedKeys, setSelectedKeys] = React.useState(new Set([]));
   const [visibleColumns, setVisibleColumns] = React.useState(new Set(INITIAL_VISIBLE_COLUMNS));
@@ -56,25 +57,25 @@ export default function RenderUsers() {
   }, [visibleColumns]);
 
   const filteredItems = React.useMemo(() => {
-    let filteredUsers = [...users];
+    let filteredBanners = [...banners];
   
     if (hasSearchFilter) {
-      filteredUsers = filteredUsers.filter((user) =>
+      filteredBanners = filteredBanners.filter((user) =>
         Object.entries(user).some(([key, value]) =>
-          (key !== "age" && key !== "actions" && key !== "avatar") &&
+          (key !== "image" && key !== "actions") &&
           String(value).toLowerCase().includes(filterValue.toLowerCase())
         )
       );
     }
   
     if (statusFilter !== "all" && Array.from(statusFilter).length !== statusOptions.length) {
-      filteredUsers = filteredUsers.filter((user) =>
+      filteredBanners = filteredBanners.filter((user) =>
         Array.from(statusFilter).includes(user.status)
       );
     }
   
-    return filteredUsers;
-  }, [users, filterValue, statusFilter]);
+    return filteredBanners;
+  }, [banners, filterValue, statusFilter]);
 
   const pages = Math.ceil(filteredItems.length / rowsPerPage);
 
@@ -95,30 +96,30 @@ export default function RenderUsers() {
     });
   }, [sortDescriptor, items]);
 
-  const renderCell = React.useCallback((user, columnKey) => {
-    const cellValue = user[columnKey];
+  const renderCell = React.useCallback((banner, columnKey) => {
+    const cellValue = banner[columnKey];
 
     switch (columnKey) {
       case "name":
         return (
           <User
-            avatarProps={{radius: "lg", src: user.avatar}}
-            description={user.email}
+            className="capitalize font-semibold"
+            avatarProps={{radius: "lg", src: banner.image}}
+            description={banner.description}
             name={cellValue}
           >
-            {user.email}
+            {banner.description}
           </User>
         );
-      case "role":
+      case "description":
         return (
-          <div className="flex flex-col">
-            <p className="text-bold text-small capitalize">{cellValue}</p>
-            <p className="text-bold text-tiny capitalize text-default-400">{user.team}</p>
-          </div>
+          <span  size="sm" variant="flat">
+            {cellValue}
+          </span>
         );
       case "status":
         return (
-          <Chip className="capitalize" color={statusColorMap[user.status]} size="sm" variant="flat">
+          <Chip className="capitalize" color={statusColorMap[banner.status]} size="sm" variant="flat">
             {cellValue}
           </Chip>
         );
@@ -185,7 +186,7 @@ export default function RenderUsers() {
           <Input
             isClearable
             className="w-full sm:max-w-[44%]"
-            placeholder="Search by id, name, role, team, email, status..."
+            placeholder="Search by id, name, description, status..."
             startContent={<SearchRoundedIcon />}
             value={filterValue}
             onClear={() => onClear()}
@@ -240,7 +241,7 @@ export default function RenderUsers() {
           </div>
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-default-400 text-small">Total {users.length} users</span>
+          <span className="text-default-400 text-small">Total {banners.length} banners</span>
           <label className="flex items-center text-default-400 text-small">
             Rows per page:
             <select
@@ -261,7 +262,7 @@ export default function RenderUsers() {
     statusFilter,
     visibleColumns,
     onRowsPerPageChange,
-    users.length,
+    banners.length,
     onSearchChange,
     hasSearchFilter,
   ]);
@@ -319,13 +320,16 @@ export default function RenderUsers() {
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody emptyContent={"No users found"} items={sortedItems}>
+      <TableBody 
+        emptyContent={"No banners found"} 
+        items={sortedItems}
+        >
         {(item) => (
           <TableRow 
-          key={item.id}
-          className="border-b last:border-b-0 border-[#2a2a31]"
-          >
-            {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
+            key={item.id}
+            className="border-b last:border-b-0 border-[#2a2a31]"
+            >
+            {(columnKey) => <TableCell className={item.description ? "max-w-96" : ""}>{renderCell(item, columnKey)}</TableCell>}
           </TableRow>
         )}
       </TableBody>

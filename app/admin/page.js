@@ -28,6 +28,12 @@ import CategoryRoundedIcon from '@mui/icons-material/CategoryRounded';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import AttachMoneyRoundedIcon from '@mui/icons-material/AttachMoneyRounded';
 import RenderUsers from '../components/renderUsers/page'
+import RenderProducts from '../components/renderProducts/page'
+import RenderPromotional from '../components/renderProducts/renderPromotional/page'
+import RenderFeatured from '../components/renderProducts/renderFeatured/page'
+import RenderCategories from '../components/renderCategories/page'
+import RenderBanners from '../components/renderBanner/page'
+import RenderGallery from '../components/renderGallery/page'
 
 const drawerWidth = 240;
 
@@ -109,14 +115,14 @@ export default function App() {
   };
 
   const menuItems = [
-    { text: 'Galeria de Anúncios', content: 'Conteúdo do Carrousel', icon: <CollectionsRoundedIcon/> },
-    { text: 'Categorias', content: 'Conteúdo das Categorias', icon: <CategoryRoundedIcon/> },
-    { text: 'Todos os Produtos', content: 'Conteúdo dos Produtos', icon: <ShoppingCartRoundedIcon/> },
-    { text: 'Itens Promocionais', content: 'Conteúdo dos Itens Promocionais', icon: <AttachMoneyRoundedIcon/> },
-    { text: 'Em Destaque', content: 'Conteúdo de Todos os Itens em Destaque', icon: <StarRoundedIcon/> },
-    { text: 'Banner de Promoções', content: 'Conteúdo dos Banners', icon: <LocalOfferRoundedIcon/> },
+    { text: 'Galeria de Anúncios', content: <RenderGallery/>, icon: <CollectionsRoundedIcon/> },
+    { text: 'Categorias', content: <RenderCategories/>, icon: <CategoryRoundedIcon/> },
+    { text: 'Todos os Produtos', content: <RenderProducts/>, icon: <ShoppingCartRoundedIcon/> },
+    { text: 'Itens Promocionais', content: <RenderPromotional/>, icon: <AttachMoneyRoundedIcon/> },
+    { text: 'Em Destaque', content: <RenderFeatured/>, icon: <StarRoundedIcon/> },
+    { text: 'Banner de Promoções', content: <RenderBanners/>, icon: <LocalOfferRoundedIcon/> },
     { text: 'Lista de Usuários', content: <RenderUsers/>, icon: <PersonSearchRoundedIcon/> },
-    { text: 'Informações de Contato', content: 'Conteúdo do Nav', icon: <SettingsRoundedIcon/> }
+    { text: 'Informações de Contato', content: 'Conteúdo do Footer', icon: <SettingsRoundedIcon/> }
   ];
 
   return (
@@ -152,7 +158,7 @@ export default function App() {
           </DrawerHeader>
           <List className="bg-[#420D09] h-full text-white ">
             {menuItems.map((item) => (
-              <ListItem className="hover:bg-[#270f0d] transition-all duration-500 ease-in" key={item.text} disablePadding sx={{ display: 'block' }}>
+              <ListItem  className="hover:bg-[#270f0d] transition-all duration-500 ease-in" key={item.text} disablePadding sx={{ display: 'block' }}>
                 <ListItemButton
                   sx={{
                     minHeight: 48,

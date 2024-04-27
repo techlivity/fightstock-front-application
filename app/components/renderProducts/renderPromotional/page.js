@@ -18,14 +18,15 @@ import {
   Pagination,
   Tooltip
 } from "@nextui-org/react";
+
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
 import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
-import {columns, users, statusOptions} from "./data";
-import {capitalize} from "./utils";
+import { columns, products, statusOptions } from "../data";
+import { capitalize } from "../utils";
 
 const statusColorMap = {
   active: "success",
@@ -33,9 +34,9 @@ const statusColorMap = {
   vacation: "warning",
 };
 
-const INITIAL_VISIBLE_COLUMNS = ["name", "role", "status", "actions"];
+const INITIAL_VISIBLE_COLUMNS = ["id", "name", "hash", "description", "status", "actions"];
 
-export default function RenderUsers() {
+export default function RenderPromotional() {
   const [filterValue, setFilterValue] = React.useState("");
   const [selectedKeys, setSelectedKeys] = React.useState(new Set([]));
   const [visibleColumns, setVisibleColumns] = React.useState(new Set(INITIAL_VISIBLE_COLUMNS));
@@ -56,25 +57,26 @@ export default function RenderUsers() {
   }, [visibleColumns]);
 
   const filteredItems = React.useMemo(() => {
-    let filteredUsers = [...users];
+    let filteredProducts = products.filter((product) => product.promotional === true);
   
     if (hasSearchFilter) {
-      filteredUsers = filteredUsers.filter((user) =>
-        Object.entries(user).some(([key, value]) =>
-          (key !== "age" && key !== "actions" && key !== "avatar") &&
-          String(value).toLowerCase().includes(filterValue.toLowerCase())
+      filteredProducts = filteredProducts.filter((user) =>
+        Object.entries(user).some(
+          ([key, value]) =>
+            key !== "image" &&
+            key !== "actions" &&
+            key !== "description" &&
+            String(value).toLowerCase().includes(filterValue.toLowerCase())
         )
       );
     }
   
     if (statusFilter !== "all" && Array.from(statusFilter).length !== statusOptions.length) {
-      filteredUsers = filteredUsers.filter((user) =>
-        Array.from(statusFilter).includes(user.status)
-      );
+      filteredProducts = filteredProducts.filter((user) => Array.from(statusFilter).includes(user.status));
     }
   
-    return filteredUsers;
-  }, [users, filterValue, statusFilter]);
+    return filteredProducts;
+  }, [products, filterValue, statusFilter]);
 
   const pages = Math.ceil(filteredItems.length / rowsPerPage);
 
@@ -95,56 +97,65 @@ export default function RenderUsers() {
     });
   }, [sortDescriptor, items]);
 
-  const renderCell = React.useCallback((user, columnKey) => {
-    const cellValue = user[columnKey];
-
-    switch (columnKey) {
-      case "name":
-        return (
-          <User
-            avatarProps={{radius: "lg", src: user.avatar}}
-            description={user.email}
-            name={cellValue}
-          >
-            {user.email}
-          </User>
-        );
-      case "role":
-        return (
-          <div className="flex flex-col">
-            <p className="text-bold text-small capitalize">{cellValue}</p>
-            <p className="text-bold text-tiny capitalize text-default-400">{user.team}</p>
-          </div>
-        );
-      case "status":
-        return (
-          <Chip className="capitalize" color={statusColorMap[user.status]} size="sm" variant="flat">
-            {cellValue}
-          </Chip>
-        );
-      case "actions":
-        return (
-          <div className="relative flex items-center gap-2">
-            <Tooltip content="Details">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <VisibilityRoundedIcon />
-              </span>
-            </Tooltip>
-            <Tooltip content="Edit user">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <BorderColorRoundedIcon />
-              </span>
-            </Tooltip>
-            <Tooltip color="danger" content="Delete user">
-              <span className="text-lg text-danger cursor-pointer active:opacity-50">
-                <DeleteForeverRoundedIcon />
-              </span>
-            </Tooltip>
-          </div>
-        );
-      default:
-        return cellValue;
+  const renderCell = React.useCallback((product, columnKey) => {
+    if (!product.promotional) {
+      return null; // Retorna null para produtos não promocionais
     }
+  
+    const cellValue = product[columnKey];
+  
+    if (columnKey === "name") {
+      return (
+        <User
+          className="capitalize font-semibold"
+          avatarProps={{ radius: "lg", src: product.image }}
+          description={product.hash}
+          name={cellValue}
+        >
+          {product.hash}
+        </User>
+      );
+    }
+  
+    if (columnKey === "description") {
+      return (
+        <span size="sm" variant="flat">
+          {cellValue}
+        </span>
+      );
+    }
+  
+    if (columnKey === "status") {
+      return (
+        <Chip className="capitalize" color={statusColorMap[product.status]} size="sm" variant="flat">
+          {cellValue}
+        </Chip>
+      );
+    }
+  
+    if (columnKey === "actions") {
+      return (
+        <div className="relative flex items-center gap-2">
+          <Tooltip content="Details">
+            <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
+              <VisibilityRoundedIcon />
+            </span>
+          </Tooltip>
+          <Tooltip content="Edit user">
+            <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
+              <BorderColorRoundedIcon />
+            </span>
+          </Tooltip>
+          <Tooltip color="danger" content="Delete user">
+            <span className="text-lg text-danger cursor-pointer active:opacity-50">
+              <DeleteForeverRoundedIcon />
+            </span>
+          </Tooltip>
+        </div>
+      );
+    }
+  
+    return cellValue;
   }, []);
 
   const onNextPage = React.useCallback(() => {
@@ -173,10 +184,10 @@ export default function RenderUsers() {
     }
   }, []);
 
-  const onClear = React.useCallback(()=>{
+  const onClear = React.useCallback(() => {
     setFilterValue("")
     setPage(1)
-  },[])
+  }, [])
 
   const topContent = React.useMemo(() => {
     return (
@@ -185,7 +196,7 @@ export default function RenderUsers() {
           <Input
             isClearable
             className="w-full sm:max-w-[44%]"
-            placeholder="Search by id, name, role, team, email, status..."
+            placeholder="Search by id, name, hash, status..."
             startContent={<SearchRoundedIcon />}
             value={filterValue}
             onClear={() => onClear()}
@@ -240,7 +251,7 @@ export default function RenderUsers() {
           </div>
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-default-400 text-small">Total {users.length} users</span>
+          <span className="text-default-400 text-small">Total {products.length} products</span>
           <label className="flex items-center text-default-400 text-small">
             Rows per page:
             <select
@@ -261,7 +272,7 @@ export default function RenderUsers() {
     statusFilter,
     visibleColumns,
     onRowsPerPageChange,
-    users.length,
+    products.length,
     onSearchChange,
     hasSearchFilter,
   ]);
@@ -319,13 +330,16 @@ export default function RenderUsers() {
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody emptyContent={"No users found"} items={sortedItems}>
+      <TableBody
+        emptyContent={"No products found"}
+        items={sortedItems}
+      >
         {(item) => (
-          <TableRow 
-          key={item.id}
-          className="border-b last:border-b-0 border-[#2a2a31]"
+          <TableRow
+            key={item.id}
+            className="border-b last:border-b-0 border-[#2a2a31]"
           >
-            {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
+            {(columnKey) => <TableCell className={item.description ? "max-w-96" : ""}>{renderCell(item, columnKey)}</TableCell>}
           </TableRow>
         )}
       </TableBody>
