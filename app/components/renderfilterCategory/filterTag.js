@@ -11,7 +11,7 @@ import { filtros, ordenar, exibir } from './datas.js'
 export default function FilterTag({ categoria }) {
     // tratar {categoria} para obtenção dos produtos referente a categoria clicada. (usando axios)
 
-    const [exibirQuantidade, setExibirQuantidade] = useState(10);
+    const [exibirQuantidade, setExibirQuantidade] = useState(16);
 
     const [nomeProduto, setNomeProduto] = useState('');
     const [produtoEncontrado, setProdutoEncontrado] = useState(null);
@@ -40,8 +40,13 @@ export default function FilterTag({ categoria }) {
         console.log("DEBUG guardaOrdenar  " + ordenar);
     }
     const guardaExibirAlteracao = (quantidade) => {
-        setExibirQuantidade(quantidade);
-        console.log("DEBUG: guardaExibirAlteracao  " + quantidade)
+        if(quantidade != '') {
+            setExibirQuantidade(quantidade);
+        }else if(quantidade == '') {
+            setExibirQuantidade(16)
+        } else {
+            setExibirQuantidade(null)
+        }
     };
     const guardaFiltroAlteracao = (filtro) => {
         const filtroParaEstado = {
@@ -107,7 +112,6 @@ export default function FilterTag({ categoria }) {
             produtosExibidos.forEach(produto => {
                 let dataCriacao = new Date(produto.createdOn);
                 if (dataCriacao >= umMesAtras && dataCriacao <= dataAtual) {
-                    console.log(produto)
                     listaFiltrada.push(produto);
                 }
             });
