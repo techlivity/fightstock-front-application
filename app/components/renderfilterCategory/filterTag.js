@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Button } from "@nextui-org/react";
 import { Input } from "@nextui-org/react";
-import { Select, SelectItem } from "@nextui-org/react";
+import { Pagination, Select, SelectItem } from "@nextui-org/react";
 import data from "./mockCategory.json";
 import ProductList_Component from '../listaProdutos';
 import { filtros, ordenar, exibir } from './datas.js'
@@ -40,9 +40,9 @@ export default function FilterTag({ categoria }) {
         console.log("DEBUG guardaOrdenar  " + ordenar);
     }
     const guardaExibirAlteracao = (quantidade) => {
-        if(quantidade != '') {
+        if (quantidade != '') {
             setExibirQuantidade(quantidade);
-        }else if(quantidade == '') {
+        } else if (quantidade == '') {
             setExibirQuantidade(16)
         } else {
             setExibirQuantidade(null)
@@ -69,6 +69,7 @@ export default function FilterTag({ categoria }) {
     const eventoClickBotaoTrataNomeProduto = () => {
         if (nomeProduto.trim() !== '') {
             const produtoEncontrado = data.produtos.find(produto => produto.name === nomeProduto);
+            console.log("produto encontrado no click ?")
             console.log(produtoEncontrado)
             if (produtoEncontrado) {
                 console.log("DEBUG: eventoClickBotaoTrataNomeProduto  " + "Produto encontrado:", produtoEncontrado);
@@ -98,42 +99,41 @@ export default function FilterTag({ categoria }) {
         let produtosExibidos = [];
         if (produtoEncontrado) {
             produtosExibidos = [produtoEncontrado];
+        } else {
+
+            produtosExibidos = exibirQuantidade ? data.produtos.slice(0, exibirQuantidade) : data.produtos;
+
+            if (emDestaque) {
+                produtosExibidos = produtosExibidos.filter(produto => produto.featured === emDestaque);
+            } else if (emPromocao) {
+                produtosExibidos = produtosExibidos.filter(produto => produto.promocao === emPromocao);
+            } else if (emNovidades) {
+                let listaFiltrada = [];
+                let dataAtual = new Date();
+                let umMesAtras = new Date();
+                umMesAtras.setMonth(umMesAtras.getMonth() - 1);
+                produtosExibidos.forEach(produto => {
+                    let dataCriacao = new Date(produto.createdOn);
+                    if (dataCriacao >= umMesAtras && dataCriacao <= dataAtual) {
+                        listaFiltrada.push(produto);
+                    }
+                });
+                produtosExibidos = listaFiltrada;
+            } else if (emOrdemAlfabetica) {
+                produtosExibidos.sort((a, b) => {
+                    let nomeA = a.name.toUpperCase();
+                    let nomeB = b.name.toUpperCase();
+                    if (nomeA < nomeB) {
+                        return -1;
+                    }
+                    if (nomeA > nomeB) {
+                        return 1;
+                    }
+                    return 0;
+                });
+            }
         }
-        produtosExibidos = exibirQuantidade ? data.produtos.slice(0, exibirQuantidade) : data.produtos;
-        if (emDestaque) {
-            produtosExibidos = produtosExibidos.filter(produto => produto.featured === emDestaque);
-        } else if (emPromocao) {
-            produtosExibidos = produtosExibidos.filter(produto => produto.promocao === emPromocao);
-        }else if(emNovidades) {
-            let listaFiltrada = [];
-            let dataAtual = new Date();
-            let umMesAtras = new Date();
-            umMesAtras.setMonth(umMesAtras.getMonth() - 1);
-            produtosExibidos.forEach(produto => {
-                let dataCriacao = new Date(produto.createdOn);
-                if (dataCriacao >= umMesAtras && dataCriacao <= dataAtual) {
-                    listaFiltrada.push(produto);
-                }
-            });
-            produtosExibidos = listaFiltrada;
-        }else if(emOrdemAlfabetica) {
-            produtosExibidos.sort((a, b) => {
-                let nomeA = a.name.toUpperCase();
-                let nomeB = b.name.toUpperCase();
-                if (nomeA < nomeB) {
-                    return -1;
-                }
-                if (nomeA > nomeB) {
-                    return 1;
-                }
-                return 0;
-            });
-        }
-        console.log(produtosExibidos)
-        console.log("Em destaque ?  " + emDestaque);
-        console.log("em promocao ?" + emPromocao);
-        console.log("Em Ordem alfabetica ?  " + emOrdemAlfabetica);
-        console.log("em Novidades ?  " + emNovidades);
+        console.log(produtosExibidos.length)
         return produtosExibidos;
 
     };
@@ -192,6 +192,9 @@ export default function FilterTag({ categoria }) {
             </div>
 
             <ProductList_Component items={preencheEspecificacaoDaApi()}></ProductList_Component>
+            <div className="flex justify-center mt-8">
+            <Pagination loop showControls total={10} initialPage={1} />
+            </div>
         </>
     )
 

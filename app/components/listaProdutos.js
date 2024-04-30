@@ -3,7 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import Image from 'next/image';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
-import { Pagination, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
 import whatsappLogo from "../public/whatsapp.png"
 import Link from 'next/link';
 import ScrollToTop from "react-scroll-to-top";
@@ -12,13 +12,6 @@ import ScrollToTop from "react-scroll-to-top";
 const Product_Component = ({ items }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [page, setPage] = useState(null);
-  const [totalProductPage, setTotalProductPage] = useState(null)
-  const eventoDePaginacao = (number) => {
-    //TODO aqui os itens ja vem tratado, preciso criar a paginacao em filterTag
-    setPage(number)
-    console.log(items.length)
-  }
 
   return (
     <>
@@ -93,8 +86,6 @@ const Product_Component = ({ items }) => {
             </ModalContent>
           </Modal>
         </div>
-        <Pagination onChange={(e) => eventoDePaginacao(e)}loop showControls total={10} initialPage={1} />
-        <p>{page}</p>
       </div>
     </>
   );
