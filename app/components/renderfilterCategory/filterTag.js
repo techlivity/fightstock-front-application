@@ -1,5 +1,6 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { getProduct } from './getProduct';
 import { Button } from "@nextui-org/react";
 import { Input } from "@nextui-org/react";
 import { Pagination, Select, SelectItem } from "@nextui-org/react";
@@ -13,6 +14,7 @@ export default function FilterTag({ categoria }) {
 
     const [exibirQuantidade, setExibirQuantidade] = useState(16);
 
+    const [produtosCategoria, setProdutosCategoria] = useState([])
     const [nomeProduto, setNomeProduto] = useState('');
     const [produtoEncontrado, setProdutoEncontrado] = useState(null);
 
@@ -25,6 +27,12 @@ export default function FilterTag({ categoria }) {
     const [emOrdemAlfabetica, setOrdemAlfabetica] = useState(false);
     const [emNovidades, setNovidades] = useState(false);
 
+    useEffect(() => {
+        getProduct().then((product) => {
+            setProdutosCategoria(product.produtos);
+        });
+    }, []);
+    
     const guardaOrdenar = (ordenar) => {
         const ordenaParaEstado = {
             "Alfabetica": { alfabetica: true, novidades: false },
@@ -68,7 +76,7 @@ export default function FilterTag({ categoria }) {
 
     const eventoClickBotaoTrataNomeProduto = () => {
         if (nomeProduto.trim() !== '') {
-            const produtoEncontrado = data.produtos.find(produto => produto.name === nomeProduto);
+            const produtoEncontrado = produtosCategoria.find(produto => produto.name === nomeProduto);
             console.log("produto encontrado no click ?")
             console.log(produtoEncontrado)
             if (produtoEncontrado) {
@@ -101,7 +109,7 @@ export default function FilterTag({ categoria }) {
             produtosExibidos = [produtoEncontrado];
         } else {
 
-            produtosExibidos = exibirQuantidade ? data.produtos.slice(0, exibirQuantidade) : data.produtos;
+            produtosExibidos = exibirQuantidade ? produtosCategoria.slice(0, exibirQuantidade) : produtosCategoria;
 
             if (emDestaque) {
                 produtosExibidos = produtosExibidos.filter(produto => produto.featured === emDestaque);
