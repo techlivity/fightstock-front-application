@@ -61,7 +61,6 @@ const Nav_bar_component = ({ data }) => {
                             </DropdownTrigger>
                             <DropdownMenu
                                 aria-label="Action event example"
-                                onAction={(key) => alert(key)}
                             >
                                 {listaCategorias.map(categorias => (<DropdownItem className="data-[hover=true]:bg-[#bf0a30]" key={categorias.id}><Link className="font-signika font-semibold text-lg text-white w-full hover:text-[#bf0a30 duration-200]" prefetch={true} href={`/categorias/${categorias.name}`}>{categorias.name}</Link></DropdownItem>))}
                             </DropdownMenu>
