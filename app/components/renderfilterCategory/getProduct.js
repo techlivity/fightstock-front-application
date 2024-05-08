@@ -17,7 +17,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-02-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -29,7 +29,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-02-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -41,7 +41,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-02-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -53,7 +53,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-02-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -65,7 +65,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-02-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -77,7 +77,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -89,7 +89,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-02-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -101,7 +101,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-02-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -113,7 +113,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-02-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -125,7 +125,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-02-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -137,7 +137,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-03-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -149,7 +149,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -161,7 +161,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -173,7 +173,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -185,7 +185,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -197,7 +197,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -209,7 +209,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -221,7 +221,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -233,7 +233,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -245,7 +245,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -257,7 +257,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -269,7 +269,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -281,7 +281,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -293,7 +293,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -305,7 +305,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -317,7 +317,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -329,7 +329,7 @@ export async function getProduct() {
                         "featured": true,
                         "promotion": false,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -339,9 +339,9 @@ export async function getProduct() {
                         "image": "https://i.postimg.cc/CKfrdhs7/bastao.jpg",
                         "description": "Este bastão em espiral é uma arma de treinamento ideal para praticantes de artes marciais que desejam aprimorar suas habilidades de defesa pessoal. Feito de materiais duráveis, apresenta um design em espiral que proporciona uma aderência confortável e segura durante o uso. Seu tamanho e peso o tornam adequado para treinamento tanto em ambientes fechados quanto ao ar livre.",
                         "featured": true,
-                        "promotion": false,
+                        "promotion": true,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -351,9 +351,9 @@ export async function getProduct() {
                         "image": "https://i.postimg.cc/CKfrdhs7/bastao.jpg",
                         "description": "Este bastão em espiral é uma arma de treinamento ideal para praticantes de artes marciais que desejam aprimorar suas habilidades de defesa pessoal. Feito de materiais duráveis, apresenta um design em espiral que proporciona uma aderência confortável e segura durante o uso. Seu tamanho e peso o tornam adequado para treinamento tanto em ambientes fechados quanto ao ar livre.",
                         "featured": true,
-                        "promotion": false,
+                        "promotion": true,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     },
@@ -363,9 +363,9 @@ export async function getProduct() {
                         "image": "https://i.postimg.cc/CKfrdhs7/bastao.jpg",
                         "description": "Este bastão em espiral é uma arma de treinamento ideal para praticantes de artes marciais que desejam aprimorar suas habilidades de defesa pessoal. Feito de materiais duráveis, apresenta um design em espiral que proporciona uma aderência confortável e segura durante o uso. Seu tamanho e peso o tornam adequado para treinamento tanto em ambientes fechados quanto ao ar livre.",
                         "featured": true,
-                        "promotion": false,
+                        "promotion": true,
                         "filed": false,
-                        "published": false,
+                        "published": true,
                         "createdOn": "2024-04-22T16:21:20.711582Z",
                         "lastUpdatedOn": "2024-04-22T16:21:20.711582Z"
                     }
