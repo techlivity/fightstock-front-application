@@ -4,7 +4,6 @@ import { getProduct } from './getProduct';
 import { Button } from "@nextui-org/react";
 import { Input } from "@nextui-org/react";
 import { Pagination, Select, SelectItem } from "@nextui-org/react";
-import data from "./mockCategory.json";
 import ProductList_Component from '../listaProdutos';
 import { filtros, ordenar, exibir } from './datas.js'
 
@@ -12,140 +11,151 @@ import { filtros, ordenar, exibir } from './datas.js'
 export default function FilterTag({ categoria }) {
     // tratar {categoria} para obtenção dos produtos referente a categoria clicada. (usando axios)
 
-    const [exibirQuantidade, setExibirQuantidade] = useState(16);
-
-    const [produtosCategoria, setProdutosCategoria] = useState([])
-    const [nomeProduto, setNomeProduto] = useState('');
-    const [produtoEncontrado, setProdutoEncontrado] = useState(null);
+    const [quantityDisplayed, setQuantityDisplayed] = useState(16);
+    const [productsCategory, setProductsCategory] = useState([])
+    const [page, setPage] = useState(1)
+    const [productName, setProductName] = useState('');
+    const [productFound, setProductFound] = useState(null);
 
     const [isInvalid, setIsInvalid] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
-    const [emPromocao, setPromocao] = useState(false);
-    const [emDestaque, setDestaque] = useState(false);
-
-    const [emOrdemAlfabetica, setOrdemAlfabetica] = useState(false);
-    const [emNovidades, setNovidades] = useState(false);
+    const [onPromotion, setOnPromotion] = useState(false);
+    const [onFeatured, setFeatured] = useState(false);
+    const [inAlphabeticalOrder, setInAlphabeticalOrder] = useState(false);
+    const [isNewProduct, setIsNewProduct] = useState(false);
 
     useEffect(() => {
         getProduct().then((product) => {
-            setProdutosCategoria(product.produtos);
+            setProductsCategory(product.produtos);
         });
     }, []);
-    
-    const guardaOrdenar = (ordenar) => {
+
+    const saveOrder = (ordenar) => {
         const ordenaParaEstado = {
             "Alfabetica": { alfabetica: true, novidades: false },
             "Novidades": { alfabetica: false, novidades: true },
             default: { alfabetica: false, novidades: false }
         };
-        console.log(ordenaParaEstado[ordenar])
         const { alfabetica, novidades } = ordenaParaEstado[ordenar] || ordenaParaEstado.default;
-        console.log(alfabetica)
-        console.log(novidades)
-        setOrdemAlfabetica(alfabetica);
-        setNovidades(novidades)
-        console.log("DEBUG guardaOrdenar  " + ordenar);
+        setInAlphabeticalOrder(alfabetica);
+        setIsNewProduct(novidades)
     }
-    const guardaExibirAlteracao = (quantidade) => {
-        if (quantidade != '') {
-            setExibirQuantidade(quantidade);
-        } else if (quantidade == '') {
-            setExibirQuantidade(16)
+
+    const saveViewChange = (quantity) => {
+        if (quantity != '') {
+            setQuantityDisplayed(quantity);
+        } else if (quantity == '') {
+            setQuantityDisplayed(16)
         } else {
-            setExibirQuantidade(null)
+            setQuantityDisplayed(null)
         }
     };
-    const guardaFiltroAlteracao = (filtro) => {
+
+    const saveChangedFilter = (filtro) => {
         const filtroParaEstado = {
             "Em destaques": { destaque: true, promocao: false },
             "Em promoções": { destaque: false, promocao: true },
             default: { destaque: false, promocao: false }
         };
-
         const { destaque, promocao } = filtroParaEstado[filtro] || filtroParaEstado.default;
-        setDestaque(destaque);
-        setPromocao(promocao);
-        console.log("DEBUG guardaFiltroAlteracao  " + filtro);
+        setFeatured(destaque);
+        setOnPromotion(promocao);
     };
 
-    const guardaNomeProduto = (nome) => {
-        setNomeProduto(nome)
-        console.log("DEBUG guardaNomeProduto  " + nome)
+    const saveNameProduct = (nome) => {
+        setProductName(nome)
     }
 
-    const eventoClickBotaoTrataNomeProduto = () => {
-        if (nomeProduto.trim() !== '') {
-            const produtoEncontrado = produtosCategoria.find(produto => produto.name === nomeProduto);
-            console.log("produto encontrado no click ?")
-            console.log(produtoEncontrado)
-            if (produtoEncontrado) {
-                console.log("DEBUG: eventoClickBotaoTrataNomeProduto  " + "Produto encontrado:", produtoEncontrado);
-                setProdutoEncontrado(produtoEncontrado);
-                setIsInvalid(false);
-                setErrorMessage('');
+    const treatsProductNameOnButton = () => {
+        if (productName.trim() !== '') {
+            const productFounded = productsCategory.find(produto => produto.name === productName);
+            if (productFounded) {
+                handleProductFounded(productFounded)
             } else {
-                console.log("DEBUG: eventoClickBotaoTrataNomeProduto  " + "Produto não encontrado");
-                setProdutoEncontrado(null);
-                setIsInvalid(true);
-                setErrorMessage('O produto não foi encontrado.');
+                handleProductNotFound()
             }
         } else {
-            console.log("DEBUG:eventoClickBotaoTrataNomeProduto " + "Nome do produto vazio");
-            setProdutoEncontrado(null);
-            setIsInvalid(true);
-            setErrorMessage('O produto não foi encontrado.');
+            handleProductWithEmptyName()
         }
 
-        setTimeout(() => {
-            setIsInvalid(false);
-            setErrorMessage('');
-        }, 3000);
+        setTimeout(resetState, 3000);
     };
 
-    const preencheEspecificacaoDaApi = () => {
-        let produtosExibidos = [];
-        if (produtoEncontrado) {
-            produtosExibidos = [produtoEncontrado];
+    const handleProductFounded = (product) => {
+        setProductFound(product);
+        setIsInvalid(false);
+        setErrorMessage('');
+    }
+
+    const handleProductNotFound = () => {
+        setProductFound(null);
+        setIsInvalid(true);
+        setErrorMessage('O produto não foi encontrado.');
+    }
+
+    const handleProductWithEmptyName = () => {
+        setProductFound(null);
+        setIsInvalid(true);
+        setErrorMessage('O produto não foi encontrado.');
+    }
+
+    const resetState = () => {
+        setIsInvalid(false);
+        setErrorMessage('');
+    }
+
+    const fillProductsToComponent = () => {
+        let productsDisplayed = [];
+        if (productFound) {
+            productsDisplayed = [productFound];
         } else {
-
-            produtosExibidos = exibirQuantidade ? produtosCategoria.slice(0, exibirQuantidade) : produtosCategoria;
-
-            if (emDestaque) {
-                produtosExibidos = produtosExibidos.filter(produto => produto.featured === emDestaque);
-            } else if (emPromocao) {
-                produtosExibidos = produtosExibidos.filter(produto => produto.promocao === emPromocao);
-            } else if (emNovidades) {
-                let listaFiltrada = [];
-                let dataAtual = new Date();
-                let umMesAtras = new Date();
-                umMesAtras.setMonth(umMesAtras.getMonth() - 1);
-                produtosExibidos.forEach(produto => {
-                    let dataCriacao = new Date(produto.createdOn);
-                    if (dataCriacao >= umMesAtras && dataCriacao <= dataAtual) {
-                        listaFiltrada.push(produto);
-                    }
-                });
-                produtosExibidos = listaFiltrada;
-            } else if (emOrdemAlfabetica) {
-                produtosExibidos.sort((a, b) => {
-                    let nomeA = a.name.toUpperCase();
-                    let nomeB = b.name.toUpperCase();
-                    if (nomeA < nomeB) {
-                        return -1;
-                    }
-                    if (nomeA > nomeB) {
-                        return 1;
-                    }
-                    return 0;
-                });
-            }
+            productsDisplayed = filterProducts();
         }
-        console.log(produtosExibidos.length)
-        return produtosExibidos;
-
+        return productsDisplayed;
     };
 
+    const filterProducts = () => {
+        let filteredProducts = productsCategory;
+
+        if (quantityDisplayed) {
+            filteredProducts.slice(0, quantityDisplayed);
+        }
+        if(page) {
+            filteredProducts = handleProductsToCurrentPage(quantityDisplayed, page)
+        }
+        if (onFeatured) {
+            filteredProducts = filteredProducts.filter(produto => produto.featured === onFeatured);
+        } else if (onPromotion) {
+            filteredProducts = filteredProducts.filter(produto => produto.promocao === onPromotion);
+        } else if (isNewProduct) {
+            filteredProducts = filterProductsOnFeatured(filteredProducts);
+        } else if (inAlphabeticalOrder) {
+            filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+        }
+        return filteredProducts
+    };
+
+    const filterProductsOnFeatured = (products) => {
+        const umMesAtras = new Date();
+        umMesAtras.setMonth(umMesAtras.getMonth() - 1);
+        const dataAtual = new Date();
+        return products.filter(products => {
+            const dataCriacao = new Date(products.createdOn);
+            return dataCriacao >= umMesAtras && dataCriacao <= dataAtual;
+        });
+    }
+    const handlePageChange = (page) => {
+        setPage(page)
+    };
+
+    function handleProductsToCurrentPage(quantidade, numeroPagina) {
+        var indiceInicial = (numeroPagina - 1) * quantidade;
+        var indiceFinal = Math.min(indiceInicial + quantidade, productsCategory.length);
+    
+        return productsCategory.slice(indiceInicial, indiceFinal)
+    }
+    
     return (
         <>
             <div className="flex justify-center mt-8">
@@ -153,16 +163,16 @@ export default function FilterTag({ categoria }) {
                     <Input
                         isInvalid={isInvalid}
                         errorMessage={errorMessage}
-                        onChange={(e) => guardaNomeProduto(e.target.value)}
+                        onChange={(e) => saveNameProduct(e.target.value)}
                         className="pr-4 w-[150%]" type="search" label="pesquisa" placeholder="Pesquise através do nome" />
-                    <Button onClick={() => eventoClickBotaoTrataNomeProduto()} className="relative mt-3 pl-2 pr-5 px-10" size="md" color="primary">Pesquisar</Button>
+                    <Button onClick={() => treatsProductNameOnButton()} className="relative mt-3 pl-2 pr-5 px-10" size="md" color="primary">Pesquisar</Button>
                     <label className='mt-3 pl-5 pr-5 font-signika font-semibold text-rose-600 decoration-solid'>Exibir: </label>
                     <Select
                         className="mb-3 w-[40%]"
                         placeholder='16'
                         size='sm'
-                        onChange={(e) => guardaExibirAlteracao(e.target.value)}
-                        value={exibirQuantidade}
+                        onChange={(e) => saveViewChange(e.target.value)}
+                        value={quantityDisplayed}
                     >
                         {exibir.map(item => (
                             <SelectItem key={item.value} value={item.value}>
@@ -175,7 +185,7 @@ export default function FilterTag({ categoria }) {
                         className="mb-3 w-[40%]"
                         placeholder='nenhum'
                         size='sm'
-                        onChange={(e) => guardaFiltroAlteracao(e.target.value)}
+                        onChange={(e) => saveChangedFilter(e.target.value)}
                     >
                         {filtros.map(item => (
                             <SelectItem key={item.value} value={item.value}>
@@ -188,7 +198,7 @@ export default function FilterTag({ categoria }) {
                         className="mb-3 w-[40%]"
                         placeholder='nenhum'
                         size='sm'
-                        onChange={(e) => guardaOrdenar(e.target.value)}
+                        onChange={(e) => saveOrder(e.target.value)}
                     >
                         {ordenar.map(item => (
                             <SelectItem key={item.value} value={item.value}>
@@ -199,9 +209,15 @@ export default function FilterTag({ categoria }) {
                 </div>
             </div>
 
-            <ProductList_Component items={preencheEspecificacaoDaApi()}></ProductList_Component>
+            <ProductList_Component items={fillProductsToComponent()}></ProductList_Component>
             <div className="flex justify-center mt-8">
-            <Pagination loop showControls total={10} initialPage={1} />
+                <Pagination 
+                    loop 
+                    showControls 
+                    total={Math.ceil(productsCategory.length / quantityDisplayed)} 
+                    initialPage="1" 
+                    onChange={handlePageChange} 
+                />
             </div>
         </>
     )
