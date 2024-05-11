@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { UserCircleIcon, LockClosedIcon, ArrowUturnLeftIcon, CheckCircleIcon } from '@heroicons/react/24/solid'
 import { EyeFilledIcon } from "./EyeFilledIcon";
 import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon";
+import GoogleLoginButton from "../components/renderGoogleLogin/GoogleLogginButton"
 
 export default function Page() {
 
@@ -108,6 +109,9 @@ export default function Page() {
                                 </button>
                             </div>
                         </form>
+                        <div className='bg-white w-screen h-16 m-4 flex items-center justify-center'>
+                            <GoogleLoginButton></GoogleLoginButton>
+                        </div>
                         <div className="flex flex-row mt-5">
                             <Link prefetch={true} className="flex flex-row font-oswald text-xl items-center cursor-pointer hover:text-green-800 duration-200 ease-in" href="/login">
                                 <UserCircleIcon className="h-6 w-6 mr-1" />
@@ -125,8 +129,15 @@ export default function Page() {
                     </div>
                 </div>
             </div>
-            <div>
-                <Image id="bgContainer" className='duration-1000' src={bgCadastro} sizes="100vw 100vh" alt="background image" fill></Image>
+            <div className="relative w-full h-full">
+                <Image
+                    id="bgContainer"
+                    src={bgCadastro}
+                    alt="background image"
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-lg"
+                ></Image>
             </div>
         </div>
     )
