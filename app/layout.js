@@ -63,8 +63,8 @@ export default function RootLayout({ children }) {
 
 
         <Providers>
-          <ReCaptchaV3Button children={children}>
-          </ReCaptchaV3Button>
+          <ReCaptchaV3Button></ReCaptchaV3Button>
+          {children}
         </Providers>
       </body>
     </html>

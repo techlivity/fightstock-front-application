@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha-v3";
 
-const ReCaptchaV3Button = ({children}) => {
+const ReCaptchaV3Button = () => {
     const [token, setToken] = useState("");
     const [refreshReCaptcha, setRefreshReCaptcha] = useState(false);
 
@@ -38,7 +38,6 @@ const ReCaptchaV3Button = ({children}) => {
                 onVerify={setTokenFunc}
                 refreshReCaptcha={refreshReCaptcha}
             />
-            {children}
         </GoogleReCaptchaProvider>
     );
 }
