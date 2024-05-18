@@ -9,6 +9,7 @@ import { UserCircleIcon, LockClosedIcon, ArrowUturnLeftIcon, CheckCircleIcon } f
 import { EyeFilledIcon } from "./EyeFilledIcon";
 import { EyeSlashFilledIcon } from "./EyeSlashFilledIcon";
 import GoogleLoginButton from "../components/renderGoogleLogin/GoogleLogginButton"
+import ReCaptchaV3Button from '../components/rendeReCaptchaV3/ReCaptchaV3Button';
 
 export default function Page() {
 
@@ -109,7 +110,9 @@ export default function Page() {
                                 </button>
                             </div>
                         </form>
-                        <div className='bg-white w-screen h-16 m-4 flex items-center justify-center'>
+
+                        
+                        <div className='h-16 m-4 flex items-center justify-center'>
                             <GoogleLoginButton></GoogleLoginButton>
                         </div>
                         <div className="flex flex-row mt-5">

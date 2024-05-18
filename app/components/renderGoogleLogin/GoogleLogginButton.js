@@ -12,7 +12,7 @@ const GoogleSignInButton = () => {
 
     return (
         <>
-            <div className="text-center">
+            <div className="text-center p-">
                 <GoogleOAuthProvider clientId={CLIENT_ID}>
                     <GoogleLogin
                         onSuccess={credentialResponse => {
