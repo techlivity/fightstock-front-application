@@ -5,6 +5,7 @@ import Link from 'next/link';
 import logo from '../public/logo.png';
 import "../components/styles/styles.css"
 import { UserCircleIcon, LockClosedIcon, ArrowRightEndOnRectangleIcon, ArrowUturnLeftIcon, ArrowPathIcon, UserPlusIcon} from '@heroicons/react/24/solid'
+import GoogleLoginButton from '../components/renderGoogleLogin/GoogleLogginButton';
 
 export default function Page() {
   const handleFocus = () => {
@@ -62,6 +63,9 @@ export default function Page() {
                                 <span className="ml-4 font-oswald">Entrar</span>
                                 <ArrowRightEndOnRectangleIcon className="relative left-4 h-7 w-7 text-[#FFFFFF]" />
                             </button>
+                        </div>
+                        <div className='h-16 m-4 flex items-center justify-center'>
+                            <GoogleLoginButton></GoogleLoginButton>
                         </div>
                     </form>
                     <div className="flex flex-row mt-5">
