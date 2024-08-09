@@ -23,9 +23,8 @@ export default function Page() {
                 }
             });
 
-            // Se o login for bem-sucedido, você pode redirecionar o usuário
             console.log('Login realizado com sucesso:', response.data);
-            router.push('/dashboard'); // Exemplo de redirecionamento para uma página de dashboard
+            router.push('/admin');
         } catch (error) {
             console.error('Erro ao fazer login:', error.response ? error.response.data : error.message);
         }
