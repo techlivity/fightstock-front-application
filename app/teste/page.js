@@ -115,7 +115,7 @@ export default function Page() {
                     <h2>Login</h2>
                     <input
                         type="email"
-                        placeholder="Email"
+                        placeholder="Qualquer Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
@@ -123,7 +123,7 @@ export default function Page() {
                     />
                     <input
                         type="password"
-                        placeholder="Senha"
+                        placeholder="Qualquer Senha"
                         value={senha}
                         onChange={(e) => setSenha(e.target.value)}
                         required
