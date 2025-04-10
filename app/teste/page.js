@@ -42,8 +42,8 @@ export default function Page() {
 
         try {
             const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/users/auth/signin`, {
-                "e-mail": email,
-                "senha": senha
+                "qualquer e-mail": email,
+                "qualquer senha": senha
             }, {
                 headers: {
                     'Content-Type': 'application/json',
