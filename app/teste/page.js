@@ -42,8 +42,8 @@ export default function Page() {
 
         try {
             const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/users/auth/signin`, {
-                "e-mail": email,
-                "senha": senha
+                "qualquer e-mail": email,
+                "qualquer senha": senha
             }, {
                 headers: {
                     'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ export default function Page() {
                     <h2>Login</h2>
                     <input
                         type="email"
-                        placeholder="Email"
+                        placeholder="Qualquer Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
@@ -123,7 +123,7 @@ export default function Page() {
                     />
                     <input
                         type="password"
-                        placeholder="Senha"
+                        placeholder="Qualquer Senha"
                         value={senha}
                         onChange={(e) => setSenha(e.target.value)}
                         required
